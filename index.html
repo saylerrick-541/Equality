@@ -1,1 +1,2896 @@
-<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <title>One Earth, One Person</title>\n    <style>\n        body {\n            font-family: Arial, sans-serif;\n            margin: 0;\n            padding: 0;\n            background-color: #f4f4f4;\n        }\n        header {\n            background: #35424a;\n            color: #ffffff;\n            padding: 10px 0;\n            text-align: center;\n        }\n        section {\n            margin: 20px;\n            padding: 20px;\n            background: #ffffff;\n            border-radius: 5px;\n            box-shadow: 0 0 10px #cccccc;\n        }\n        footer {\n            text-align: center;\n            padding: 10px 0;\n            background: #35424a;\n            color: white;\n            position: absolute;\n            bottom: 0;\n            width: 100%;\n        }\n    </style>\n</head>\n<body>\n    <header>\n        <h1>One Earth, One Person</h1>\n    </header>\n    <section>\n        <h2>Welcome to Our Mission</h2>\n        <p>This website aims to promote the idea that each one of us has the power to make a difference in the world. We believe that by uniting our efforts, we can create a healthier planet for generations to come.</p>\n        <h3>Our Goals</h3>\n        <ul>\n            <li>Educate individuals on sustainability</li>\n            <li>Encourage eco-friendly practices</li>\n            <li>Inspire global action for climate change</li>\n        </ul>\n    </section>\n    <footer>\n        <p>&copy; 2026 One Earth, One Person. All rights reserved.</p>\n    </footer>\n</body>\n</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ONE — The Average Human</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Naturalist / Nature journal palette */
+    --parchment: #f5eedc;       /* aged paper background */
+    --vellum: #ede3c8;          /* slightly darker parchment for cards */
+    --ink: #1c1209;             /* deep sepia-black ink */
+    --ink-soft: #2e200f;        /* softer ink for secondary text */
+    --sepia: #7a4f28;           /* warm sepia brown */
+    --ochre: #b8842a;           /* golden ochre — Nature accent */
+    --ochre-light: #d4a84b;     /* lighter ochre highlight */
+    --forest: #3b5729;          /* deep botanical green */
+    --sage: #6a8c58;            /* sage green — specimen green */
+    --moss-mid: #8aaa72;        /* mid moss for bars */
+    --rust: #a04020;            /* botanical rust / terracotta */
+    --slate: #4a5a6a;           /* Nature magazine blue-grey */
+    --slate-light: #7a8e9a;     /* lighter slate */
+    --care: #7a4a5a;            /* muted plum */
+    --care-light: #a87888;
+    --health: #3a6a5a;
+    --edu: #6a5820;
+    --divider: #c8b898;         /* parchment divider line */
+    --card-border: #c4b088;     /* card border — like old field notes */
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--parchment);
+    color: var(--ink);
+    font-family: 'EB Garamond', 'Cormorant Garamond', Georgia, serif;
+    font-weight: 400;
+    overflow-x: hidden;
+  }
+
+  /* ── AGED PAPER GRAIN OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.6;
+    mix-blend-mode: multiply;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    position: relative;
+    background: 
+      radial-gradient(ellipse 80% 55% at 50% 40%, #e8dfc0 0%, var(--parchment) 65%),
+      var(--parchment);
+    overflow: hidden;
+    border-bottom: 2px solid var(--divider);
+  }
+
+  /* Decorative botanical corner engraving feel */
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      radial-gradient(ellipse 120% 80% at 50% 110%, rgba(58, 87, 41, 0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .globe-bg {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 38% 38%, #d4c898, #b8a870);
+    opacity: 0.18;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: breathe 8s ease-in-out infinite;
+    border: 1px solid rgba(120, 90, 40, 0.15);
+  }
+
+  @keyframes breathe {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.18; }
+    50% { transform: translate(-50%, -50%) scale(1.06); opacity: 0.28; }
+  }
+
+  .hero-eyebrow {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.22em;
+    color: var(--sepia);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 1s 0.3s forwards;
+    font-style: italic;
+  }
+
+  .hero h1 {
+    font-family: 'EB Garamond', serif;
+    font-size: clamp(4rem, 12vw, 10rem);
+    font-weight: 500;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    position: relative;
+    opacity: 0;
+    animation: fadeUp 1s 0.5s forwards;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--ochre);
+  }
+
+  .hero-sub {
+    font-size: clamp(1rem, 2.5vw, 1.35rem);
+    color: var(--sepia);
+    max-width: 600px;
+    line-height: 1.8;
+    margin-top: 2rem;
+    opacity: 0;
+    animation: fadeUp 1s 0.8s forwards;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+  }
+
+  .hero-stat {
+    margin-top: 3rem;
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeUp 1s 1.1s forwards;
+  }
+
+  .hero-stat-item {
+    text-align: center;
+  }
+
+  .hero-stat-item .num {
+    font-family: 'EB Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: var(--ochre);
+    display: block;
+  }
+
+  .hero-stat-item .label {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    color: var(--sepia);
+    text-transform: uppercase;
+    opacity: 0.75;
+  }
+
+  .scroll-cue {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'EB Garamond', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.22em;
+    color: var(--sepia);
+    text-transform: uppercase;
+    font-style: italic;
+    animation: fadeUp 1s 1.5s forwards, bob 2s 2.5s ease-in-out infinite;
+    opacity: 0;
+  }
+
+  @keyframes bob {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── SECTION WRAPPER ── */
+  section {
+    padding: 6rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.28em;
+    color: var(--ochre);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+
+  .section-title {
+    font-family: 'EB Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 500;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    color: var(--ink);
+  }
+
+  .section-title em { font-style: italic; color: var(--ochre); }
+
+  .section-intro {
+    font-size: 1.15rem;
+    color: var(--sepia);
+    max-width: 620px;
+    line-height: 1.85;
+    margin-bottom: 3rem;
+    font-family: 'EB Garamond', serif;
+  }
+
+  /* ── DIVIDER — engraving rule style ── */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--divider), transparent);
+    margin: 0;
+  }
+
+  /* ── PROFILE CARD ── */
+  .profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 700px) { .profile-grid { grid-template-columns: 1fr; } }
+
+  .stat-card {
+    background: var(--vellum);
+    border: 1px solid var(--card-border);
+    border-radius: 2px;
+    padding: 1.8rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  .stat-card:hover { 
+    border-color: var(--ochre); 
+    box-shadow: 0 2px 12px rgba(120, 80, 30, 0.1);
+  }
+
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--forest), var(--ochre), var(--forest));
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .stat-card:hover::before { opacity: 1; }
+
+  .card-icon {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 1rem;
+    opacity: 0.7;
+  }
+
+  .card-icon svg { width: 100%; height: 100%; }
+
+  .card-label {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    color: var(--sepia);
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+    opacity: 0.8;
+  }
+
+  .card-value {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.9rem;
+    font-weight: 500;
+    color: var(--ochre);
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-detail {
+    font-size: 1rem;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    font-family: 'EB Garamond', serif;
+  }
+
+  /* ── BAR CHARTS ── */
+  .bar-group { margin-bottom: 3rem; }
+
+  .bar-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .bar-name {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.82rem;
+    color: var(--sepia);
+    width: 130px;
+    flex-shrink: 0;
+    text-align: right;
+    font-style: italic;
+  }
+
+  .bar-track {
+    flex: 1;
+    height: 5px;
+    background: transparent;
+    border-radius: 0;
+    overflow: visible;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 0;
+    background: linear-gradient(to right, var(--forest), var(--ochre));
+    transform-origin: left;
+    animation: growBar 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    transform: scaleX(0);
+  }
+
+  @keyframes growBar {
+    to { transform: scaleX(1); }
+  }
+
+  .bar-val {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.82rem;
+    color: var(--ochre);
+    width: 60px;
+    flex-shrink: 0;
+  }
+
+  /* ── DAY IN THE LIFE ── */
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--divider) 15%, var(--divider) 85%, transparent);
+  }
+
+  .timeline-item {
+    position: relative;
+    padding: 0 0 2.5rem 2rem;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 6px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--ochre);
+    border: 2px solid var(--parchment);
+  }
+
+  .timeline-time {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: var(--ochre);
+    margin-bottom: 0.3rem;
+    text-transform: uppercase;
+    font-style: italic;
+  }
+
+  .timeline-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+
+  .timeline-desc {
+    font-size: 1rem;
+    color: var(--sepia);
+    line-height: 1.7;
+    max-width: 560px;
+    font-family: 'EB Garamond', serif;
+  }
+
+  /* ── EQUALITY SECTION ── */
+  .equality-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 700px) { .equality-grid { grid-template-columns: 1fr; } }
+
+  .equality-card {
+    background: var(--vellum);
+    border: 1px solid var(--card-border);
+    border-radius: 2px;
+    padding: 2rem 1.5rem;
+  }
+
+  .eq-num {
+    font-family: 'EB Garamond', serif;
+    font-size: 3rem;
+    font-weight: 500;
+    color: var(--ochre);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .eq-label {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.65rem;
+    color: var(--sepia);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+  }
+
+  .eq-desc {
+    font-size: 1rem;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    font-family: 'EB Garamond', serif;
+  }
+
+  /* ── QUOTE BLOCK — like Nature magazine sidebar ── */
+  .pull-quote {
+    border-left: 3px solid var(--ochre);
+    padding: 1.5rem 2rem;
+    margin: 4rem 0;
+    background: var(--vellum);
+    border-radius: 0 2px 2px 0;
+  }
+
+  .pull-quote p {
+    font-family: 'EB Garamond', serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.75rem);
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.55;
+  }
+
+  .pull-quote cite {
+    display: block;
+    margin-top: 0.8rem;
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.65rem;
+    color: var(--sepia);
+    letter-spacing: 0.18em;
+    font-style: normal;
+    opacity: 0.8;
+  }
+
+  /* ── WORLD PIE VISUAL ── */
+  .donut-row {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-top: 2rem;
+  }
+
+  .donut-wrap {
+    text-align: center;
+  }
+
+  .donut-wrap svg {
+    display: block;
+    margin: 0 auto 0.8rem;
+  }
+
+  .donut-title {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.65rem;
+    color: var(--sepia);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.8;
+  }
+
+  /* ── FOOTER — like a field journal colophon ── */
+  footer {
+    text-align: center;
+    padding: 4rem 2rem;
+    border-top: 1px solid var(--divider);
+    background: var(--vellum);
+  }
+
+  footer p {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.82rem;
+    color: var(--sepia);
+    letter-spacing: 0.1em;
+    line-height: 2;
+    font-style: italic;
+  }
+
+  footer a { color: var(--ochre); text-decoration: none; }
+
+  /* ── TABS ── */
+  .tab-bar {
+    display: flex;
+    gap: 0;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--divider);
+  }
+
+  .tab-btn {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-style: italic;
+    color: var(--sepia);
+    background: none;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: all 0.2s;
+  }
+
+  .tab-btn.active {
+    color: var(--ochre);
+    border-bottom-color: var(--ochre);
+  }
+
+  .tab-btn:hover { color: var(--ink); }
+
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── FULL WIDTH BAND ── */
+  .band {
+    background: var(--vellum);
+    padding: 5rem 2rem;
+    border-top: 1px solid var(--divider);
+    border-bottom: 1px solid var(--divider);
+  }
+
+  .band-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* ── COMPARISON TOGGLE ── */
+  .compare-wrap {
+    margin-top: 2rem;
+  }
+
+  .compare-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 1rem;
+    align-items: center;
+    padding: 1.2rem 0;
+    border-bottom: 1px solid var(--divider);
+  }
+
+  .compare-left {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.88rem;
+    color: var(--rust);
+    text-align: right;
+    font-style: italic;
+  }
+
+  .compare-center {
+    text-align: center;
+  }
+
+  .compare-center-label {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.62rem;
+    color: var(--sepia);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    display: block;
+    opacity: 0.75;
+  }
+
+  .compare-bar {
+    height: 7px;
+    background: transparent;
+    border-radius: 0;
+    position: relative;
+    overflow: visible;
+  }
+
+  .compare-bar-real {
+    position: absolute;
+    left: 0; top: 0; height: 100%;
+    background: var(--rust);
+    border-radius: 0;
+    animation: growBar 1.5s cubic-bezier(0.22,1,0.36,1) forwards;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  .compare-bar-equal {
+    position: absolute;
+    right: 0; top: 0; height: 100%;
+    background: var(--forest);
+    border-radius: 0;
+    animation: growBarRight 1.5s cubic-bezier(0.22,1,0.36,1) forwards;
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+
+  @keyframes growBarRight {
+    to { transform: scaleX(1); }
+  }
+
+  /* ── CARE WORK SECTION ── */
+  .care-banner {
+    background: linear-gradient(135deg, #f0e8d5, #e8dfc0);
+    border: 1px solid var(--card-border);
+    border-radius: 2px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .care-banner::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(to right, var(--care), var(--ochre), var(--health));
+  }
+
+  .care-banner-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.5rem;
+    color: var(--care);
+    margin-bottom: 0.8rem;
+    font-style: italic;
+  }
+
+  .care-banner-text {
+    font-size: 1rem;
+    color: var(--sepia);
+    line-height: 1.8;
+    max-width: 700px;
+    font-family: 'EB Garamond', serif;
+  }
+
+  .three-pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  @media (max-width: 800px) { .three-pillars { grid-template-columns: 1fr; } }
+
+  .pillar-card {
+    border-radius: 2px;
+    padding: 2rem 1.5rem;
+    border: 1px solid var(--card-border);
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+
+  .pillar-card:hover { border-color: var(--ochre); }
+
+  .pillar-card.care-col  { background: #f0e8e4; border-color: #c8b0b0; }
+  .pillar-card.health-col { background: #e8ede8; border-color: #aabcaa; }
+  .pillar-card.edu-col   { background: #ede8d8; border-color: #c0b090; }
+
+  .pillar-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 3px; height: 100%;
+  }
+
+  .pillar-card.care-col::before  { background: var(--care); }
+  .pillar-card.health-col::before { background: var(--health); }
+  .pillar-card.edu-col::before   { background: var(--edu); }
+
+  .pillar-icon { width: 40px; height: 40px; margin-bottom: 1rem; opacity: 0.65; }
+  .pillar-icon svg { width: 100%; height: 100%; }
+
+  .pillar-label {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+
+  .pillar-card.care-col  .pillar-label { color: var(--care); }
+  .pillar-card.health-col .pillar-label { color: var(--health); }
+  .pillar-card.edu-col   .pillar-label { color: var(--edu); }
+
+  .pillar-num {
+    font-family: 'EB Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 0.6rem;
+  }
+
+  .pillar-detail {
+    font-size: 0.95rem;
+    color: var(--sepia);
+    line-height: 1.7;
+    font-family: 'EB Garamond', serif;
+  }
+
+  .pillar-sub-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+    margin-top: 1.2rem;
+  }
+
+  .pillar-sub {
+    background: rgba(255,255,255,0.4);
+    border: 1px solid var(--card-border);
+    border-radius: 2px;
+    padding: 0.8rem;
+  }
+
+  .pillar-sub-num {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+  }
+
+  .pillar-card.care-col  .pillar-sub-num { color: var(--care); }
+  .pillar-card.health-col .pillar-sub-num { color: var(--health); }
+  .pillar-card.edu-col   .pillar-sub-num { color: var(--edu); }
+
+  .pillar-sub-label {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.58rem;
+    color: var(--sepia);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.75;
+  }
+
+  /* ── UNPAID WORK CLOCK ── */
+  .clock-section {
+    display: flex;
+    gap: 2.5rem;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+  .clock-ring {
+    position: relative;
+    flex-shrink: 0;
+  }
+  .clock-ring svg {
+    transform: rotate(-90deg);
+  }
+  .clock-center {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  .clock-center-num {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.8rem;
+    color: var(--paper);
+    line-height: 1;
+  }
+  .clock-center-label {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    color: var(--sepia);
+    text-transform: uppercase;
+  }
+  .clock-legend {
+    flex: 1;
+    min-width: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    padding-top: 0.5rem;
+  }
+  .clock-legend-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+  .legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .legend-text {
+    font-size: 0.82rem;
+    color: var(--sepia);
+    line-height: 1.5;
+  }
+
+  /* ── CARE EQUALITY ROWS ── */
+  .care-eq-row {
+    display: grid;
+    grid-template-columns: 110px 1fr 60px;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 0.6rem;
+  }
+  /* ── CARD EXPAND TABS ── */
+  .eq-expand-btn {
+    margin-top: 1.2rem;
+    background: none;
+    border: 1px solid var(--card-border);
+    border-radius: 2px;
+    padding: 0.35rem 0.8rem;
+    font-family: 'EB Garamond', serif;
+    font-size: 0.62rem;
+    font-style: italic;
+    color: var(--sepia);
+    cursor: pointer;
+    letter-spacing: 0.08em;
+    transition: border-color 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .eq-expand-btn:hover { border-color: var(--ochre); color: var(--ochre); }
+  .eq-expand-btn .arrow { display: inline-block; transition: transform 0.25s; }
+  .eq-expand-btn.open .arrow { transform: rotate(90deg); }
+
+  .eq-subcards {
+    display: none;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 1rem;
+    border-top: 1px solid var(--card-border);
+    padding-top: 1rem;
+  }
+  .eq-subcards.open { display: flex; }
+
+  .eq-subcard {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.3rem 0.8rem;
+    align-items: baseline;
+    padding: 0.6rem 0.8rem;
+    background: rgba(255,255,255,0.35);
+    border-radius: 2px;
+    border-left: 2px solid var(--ochre);
+  }
+  .eq-subcard-name {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.78rem;
+    color: var(--sepia);
+    font-style: italic;
+  }
+  .eq-subcard-val {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.95rem;
+    color: var(--ochre);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .eq-subcard-note {
+    grid-column: 1 / -1;
+    font-size: 0.72rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    opacity: 0.85;
+  }
+
+  /* Land card spans full width */
+  .equality-card.full-width {
+    grid-column: 1 / -1;
+  }
+  .eq-sub-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6rem;
+    margin-top: 1rem;
+    border-top: 1px solid var(--card-border);
+    padding-top: 1rem;
+  }
+  @media (max-width: 700px) { .eq-sub-grid { grid-template-columns: 1fr; } }
+
+  /* ── PART V COUNTRY SELECTOR ── */
+  .partv-country-bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.8rem;
+    padding: 0.9rem 1.2rem;
+    background: var(--vellum);
+    border: 1px solid var(--card-border);
+    border-radius: 3px;
+  }
+  .partv-country-label {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--sepia);
+    white-space: nowrap;
+  }
+  .partv-country-select {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--ink);
+    background: var(--parchment);
+    border: 1px solid var(--card-border);
+    border-radius: 2px;
+    padding: 0.35rem 2rem 0.35rem 0.7rem;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%237a4f28'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.6rem center;
+    cursor: pointer;
+    flex: 1;
+    min-width: 160px;
+    max-width: 280px;
+  }
+  .partv-country-status {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.75rem;
+    font-style: italic;
+    color: var(--sepia);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-width: 100px;
+  }
+  .partv-spinner {
+    width: 12px; height: 12px;
+    border: 2px solid var(--card-border);
+    border-top-color: var(--ochre);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    display: none;
+  }
+  .partv-spinner.active { display: inline-block; }
+  .partv-clear-btn {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.75rem;
+    font-style: italic;
+    color: var(--sepia);
+    background: none;
+    border: 1px solid var(--card-border);
+    border-radius: 2px;
+    padding: 0.25rem 0.6rem;
+    cursor: pointer;
+    display: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .partv-clear-btn:hover { border-color: var(--rust); color: var(--rust); }
+  .partv-clear-btn.visible { display: inline-block; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Country row inside equality-card */
+  .eq-country-row {
+    display: none;
+    align-items: baseline;
+    gap: 0.6rem;
+    margin-top: 0.8rem;
+    padding-top: 0.8rem;
+    border-top: 1px dashed var(--card-border);
+    animation: fadeInRow 0.4s ease;
+  }
+  .eq-country-row.visible { display: flex; }
+  @keyframes fadeInRow { from { opacity:0; transform:translateY(4px); } to { opacity:1; transform:none; } }
+  .eq-country-flag {
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    color: var(--slate);
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    white-space: nowrap;
+  }
+  .eq-country-val {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.6rem;
+    color: var(--slate);
+    line-height: 1;
+  }
+  .eq-country-delta {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.72rem;
+    font-style: italic;
+    color: var(--sepia);
+  }
+  .eq-country-delta.above { color: #6a3a20; }
+  .eq-country-delta.below { color: #3a6a3a; }
+
+  /* ── ABOUT YOU SECTION ── */
+  .you-section {
+    background: var(--vellum);
+    border: 1px solid var(--card-border);
+    border-radius: 3px;
+    padding: 2.5rem;
+    margin-bottom: 0;
+  }
+
+  .you-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem 2rem;
+    margin: 1.8rem 0;
+  }
+  @media (max-width: 700px) { .you-form-grid { grid-template-columns: 1fr; } }
+
+  .you-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .you-field label {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--sepia);
+  }
+
+  .you-field input,
+  .you-field select {
+    font-family: 'EB Garamond', serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--ink);
+    background: var(--parchment);
+    border: 1px solid var(--card-border);
+    border-radius: 2px;
+    padding: 0.5rem 0.8rem;
+    transition: border-color 0.2s;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .you-field input:focus,
+  .you-field select:focus {
+    outline: none;
+    border-color: var(--ochre);
+  }
+
+  .you-field input::placeholder { color: var(--sepia); opacity: 0.5; }
+
+  .you-submit-btn {
+    font-family: 'EB Garamond', serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--paper);
+    background: var(--forest);
+    border: none;
+    border-radius: 2px;
+    padding: 0.7rem 2rem;
+    cursor: pointer;
+    letter-spacing: 0.06em;
+    transition: background 0.2s, opacity 0.2s;
+    margin-top: 0.5rem;
+  }
+  .you-submit-btn:hover { background: #2a5020; }
+  .you-submit-btn:disabled { opacity: 0.5; cursor: default; }
+
+  .you-status {
+    margin-top: 1rem;
+    font-family: 'EB Garamond', serif;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--sepia);
+    min-height: 1.4em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* Results panel */
+  .you-results {
+    display: none;
+    margin-top: 2rem;
+    border-top: 1px solid var(--card-border);
+    padding-top: 2rem;
+    animation: fadeInRow 0.5s ease;
+  }
+  .you-results.visible { display: block; }
+
+  .you-results-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--paper);
+    margin-bottom: 0.4rem;
+  }
+
+  .you-results-sub {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sepia);
+    margin-bottom: 1.8rem;
+  }
+
+  .you-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  @media (max-width: 900px) { .you-metrics-grid { grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 600px) { .you-metrics-grid { grid-template-columns: 1fr; } }
+
+  .you-metric-card {
+    background: var(--parchment);
+    border: 1px solid var(--card-border);
+    border-radius: 2px;
+    padding: 1.2rem 1.2rem 1rem;
+    position: relative;
+  }
+
+  .you-metric-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+  }
+  .you-metric-card.above::before { background: var(--rust); }
+  .you-metric-card.below::before { background: var(--forest); }
+  .you-metric-card.equal::before { background: var(--ochre); }
+
+  .you-metric-label {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--sepia);
+    margin-bottom: 0.5rem;
+  }
+
+  .you-metric-val {
+    font-family: 'EB Garamond', serif;
+    font-size: 2rem;
+    color: var(--ochre);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .you-metric-global {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.72rem;
+    color: var(--sepia);
+    font-style: italic;
+    margin-bottom: 0.6rem;
+  }
+
+  .you-metric-badge {
+    display: inline-block;
+    font-family: 'EB Garamond', serif;
+    font-size: 0.68rem;
+    font-style: italic;
+    padding: 0.15rem 0.5rem;
+    border-radius: 2px;
+    margin-bottom: 0.6rem;
+  }
+  .above .you-metric-badge { background: rgba(160,64,32,0.12); color: var(--rust); }
+  .below .you-metric-badge { background: rgba(42,90,40,0.12); color: var(--forest); }
+  .equal .you-metric-badge { background: rgba(184,132,42,0.12); color: var(--ochre); }
+
+  .you-metric-note {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  .you-narrative {
+    margin-top: 1.8rem;
+    padding: 1.5rem;
+    background: rgba(42,90,40,0.06);
+    border-left: 3px solid var(--forest);
+    border-radius: 0 2px 2px 0;
+  }
+  .you-narrative p {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+  .you-narrative p + p { margin-top: 0.8rem; }
+
+  /* "You" row injected into Part V cards */
+  .eq-you-row {
+    display: none;
+    align-items: baseline;
+    gap: 0.6rem;
+    margin-top: 0.5rem;
+    padding-top: 0.6rem;
+    border-top: 1px dashed rgba(184,132,42,0.3);
+    animation: fadeInRow 0.4s ease;
+  }
+  .eq-you-row.visible { display: flex; }
+  .eq-you-flag {
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    color: var(--ochre);
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    white-space: nowrap;
+  }
+  .eq-you-val {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.6rem;
+    color: var(--ochre);
+    line-height: 1;
+  }
+  .eq-you-delta {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.72rem;
+    font-style: italic;
+    color: var(--sepia);
+  }
+  .eq-you-delta.above { color: #a04020; }
+  .eq-you-delta.below { color: #3a6a3a; }
+
+</style>
+</head>
+<body>
+
+
+<!-- HERO -->
+<div class="hero">
+  <div class="globe-bg"></div>
+  <p class="hero-eyebrow">A thought experiment · 8 billion lives · averaged to one</p>
+  <h1><em>One</em><br>Person</h1>
+  <p class="hero-sub">If all of Earth's wealth, land, food, time, and shelter were divided equally — who would you be? A portrait of the statistically average human being.</p>
+  <div class="hero-stat">
+    <div class="hero-stat-item">
+      <span class="num">8.1B</span>
+      <span class="label">People averaged</span>
+    </div>
+    <div class="hero-stat-item">
+      <span class="num">195</span>
+      <span class="label">Nations dissolved</span>
+    </div>
+    <div class="hero-stat-item">
+      <span class="num">$23/day</span>
+      <span class="label">Equal world income</span>
+    </div>
+    <div class="hero-stat-item">
+      <span class="num">71 yrs</span>
+      <span class="label">Average lifespan</span>
+    </div>
+  </div>
+  <p class="scroll-cue">↓ scroll to meet this person</p>
+</div>
+
+
+<!-- ABOUT YOU -->
+<section id="about-you-section">
+  <p class="section-label">About You — Optional</p>
+  <h2 class="section-title">Where do <em>you</em><br>fit in?</h2>
+  <p class="section-intro">Enter a few details and see your personal position relative to the global average, the equal share, and the rest of humanity. All data stays in your browser — nothing is sent or stored.</p>
+
+  <div class="you-section">
+    <div class="you-form-grid">
+      <div class="you-field">
+        <label>Annual income (USD)</label>
+        <input type="number" id="you-income" placeholder="e.g. 55000" min="0" />
+      </div>
+      <div class="you-field">
+        <label>Country / region</label>
+        <select id="you-country">
+          <option value="">— select —</option>
+          <option>United States</option><option>United Kingdom</option><option>Canada</option>
+          <option>Australia</option><option>Germany</option><option>France</option>
+          <option>Japan</option><option>South Korea</option><option>Italy</option>
+          <option>Spain</option><option>Netherlands</option><option>Sweden</option>
+          <option>Norway</option><option>Denmark</option><option>Finland</option>
+          <option>Switzerland</option><option>Ireland</option><option>New Zealand</option>
+          <option>Poland</option><option>Portugal</option><option>Romania</option>
+          <option>Ukraine</option><option>Russia</option><option>China</option>
+          <option>India</option><option>Brazil</option><option>Mexico</option>
+          <option>Argentina</option><option>Chile</option><option>Colombia</option>
+          <option>South Africa</option><option>Nigeria</option><option>Kenya</option>
+          <option>Ethiopia</option><option>Egypt</option><option>Morocco</option>
+          <option>Saudi Arabia</option><option>Turkey</option><option>Iran</option>
+          <option>Indonesia</option><option>Philippines</option><option>Vietnam</option>
+          <option>Thailand</option><option>Malaysia</option><option>Pakistan</option>
+          <option>Bangladesh</option><option>Other high-income</option>
+          <option>Other middle-income</option><option>Other low-income</option>
+        </select>
+      </div>
+      <div class="you-field">
+        <label>Approximate net worth (USD)</label>
+        <input type="number" id="you-wealth" placeholder="e.g. 80000" />
+      </div>
+      <div class="you-field">
+        <label>Home size (sq ft)</label>
+        <input type="number" id="you-housing" placeholder="e.g. 900" min="0" />
+      </div>
+      <div class="you-field">
+        <label>Estimated diet</label>
+        <select id="you-diet">
+          <option value="">— select —</option>
+          <option value="vegan">Vegan / plant-based</option>
+          <option value="vegetarian">Vegetarian</option>
+          <option value="lowmeat">Low meat (1–2×/week)</option>
+          <option value="average">Average omnivore</option>
+          <option value="highmeat">High meat (daily)</option>
+        </select>
+      </div>
+      <div class="you-field">
+        <label>Flights per year (return trips)</label>
+        <input type="number" id="you-flights" placeholder="e.g. 2" min="0" />
+      </div>
+      <div class="you-field">
+        <label>Home energy use</label>
+        <select id="you-energy">
+          <option value="">— select —</option>
+          <option value="minimal">Minimal (no AC, small flat)</option>
+          <option value="average">Average household</option>
+          <option value="high">High (large home, AC, gas heat)</option>
+          <option value="very_high">Very high (large home, pool, EV charging)</option>
+        </select>
+      </div>
+      <div class="you-field">
+        <label>Anything else relevant? (optional)</label>
+        <input type="text" id="you-notes" placeholder="e.g. I live alone, I drive a lot…" />
+      </div>
+    </div>
+
+    <button class="you-submit-btn" id="youSubmitBtn" onclick="analyseYou()">
+      Calculate my position →
+    </button>
+    <div class="you-status" id="youStatus">
+      <div class="partv-spinner" id="youSpinner"></div>
+      <span id="youStatusText"></span>
+    </div>
+
+    <!-- Results panel -->
+    <div class="you-results" id="youResults">
+      <div class="you-results-title">Your global position</div>
+      <div class="you-results-sub" id="youResultsSub"></div>
+      <div class="you-metrics-grid" id="youMetricsGrid"></div>
+      <div class="you-narrative" id="youNarrative"></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHO ARE YOU -->
+<section>
+  <p class="section-label">Part I — Identity</p>
+  <h2 class="section-title">Meet the <em>average</em><br>human</h2>
+  <p class="section-intro">Strip away nationality, borders, and privilege. Based on real global data, this is the demographic center of all 8.1 billion lives.</p>
+
+  <div class="profile-grid">
+    <div class="stat-card">
+      <div class="card-icon"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 16L18 4L33 16" stroke="#b8842a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 14V31H14V22H22V31H30V14" stroke="#b8842a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="15" y="22" width="6" height="9" stroke="#b8842a" stroke-width="1.5"/><path d="M12 31V22" stroke="#b8842a" stroke-width="0.5" opacity="0.4"/></svg></div>
+      <div class="card-label">Where you sleep</div>
+      <div class="card-value">Urban area, ~570 sq ft</div>
+      <div class="card-detail">Slightly more than half of humans live in urban areas. Your home is shared with ~4.4 people. You likely rent, and running water is available — but not guaranteed.</div>
+    </div>
+    <div class="stat-card">
+      <div class="card-icon"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 28L22 14" stroke="#b8842a" stroke-width="1.5" stroke-linecap="round"/><path d="M19 11l3-3 5 5-3 3" stroke="#b8842a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 8l2-2c1-1 3-1 4 0l2 2-2 2-2-2-2 2" stroke="#b8842a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="26" r="3" stroke="#b8842a" stroke-width="1.5"/><line x1="6" y1="30" x2="4" y2="32" stroke="#b8842a" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      <div class="card-label">Paid work</div>
+      <div class="card-value">~4.4 hrs/day (all adults)</div>
+      <div class="card-detail">Averaged across every adult on Earth — including the employed, unemployed, retired, and part-time — the global mean is 4.4 paid hours per day. Among those who are employed, a typical shift runs 8–9 hrs, 6 days/week, usually without a contract or sick pay. The 4.4 hr average reflects that roughly half of adults at any given time are not in paid work — often because they are doing unpaid care work instead.</div>
+    </div>
+    <div class="stat-card">
+      <div class="card-icon"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 20c0 0 1-4 5-4s5 3 8 3 5-3 8-3 5 4 5 4" stroke="#b8842a" stroke-width="1.5" stroke-linecap="round"/><path d="M5 20c-1 2-1 4 0 6l2 4h22l2-4c1-2 1-4 0-6" stroke="#b8842a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 8c0-2 1-4 3-4 1 0 2 1 2 2v7" stroke="#b8842a" stroke-width="1.5" stroke-linecap="round"/><path d="M18 6c0-1 1-2 2-2s2 1 2 2v6" stroke="#b8842a" stroke-width="1.5" stroke-linecap="round"/><path d="M11 10c0-1 1-2 2-2" stroke="#b8842a" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      <div class="card-label">Unpaid care work</div>
+      <div class="card-value">~3.5 hrs/day</div>
+      <div class="card-detail">The average person performs 3–4 hours of unpaid care daily — cooking, cleaning, childcare, elder care. Women do 2–3× more than men. This labour is worth an estimated $10–13 trillion annually yet counted as zero in GDP.</div>
+    </div>
+    <div class="stat-card">
+      <div class="card-icon"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="22" r="10" stroke="#b8842a" stroke-width="1.5"/><path d="M14 9h8" stroke="#b8842a" stroke-width="1.5" stroke-linecap="round"/><path d="M16 9c0-2 4-2 4 0" stroke="#b8842a" stroke-width="1.5"/><path d="M18 17v2m0 0c-2 0-3 1-3 2s1 2 3 2 3 1 3 2-1 2-3 2m0-8c2 0 3 1 3 2m-3 6v2" stroke="#b8842a" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      <div class="card-label">Net assets</div>
+      <div class="card-value">~$122,000 (global average, all wealth)</div>
+      <div class="card-detail">Total global wealth — private (~$454T) and public (~$96T) — divided equally across ~4.5 billion adults gives ~$122K each. But the <em>median</em> adult holds just ~$8,000 in private wealth — the average is pulled far right by a tiny wealthy minority, and public assets are spread thinly or offset by sovereign debt. The bottom 50% of all adults share less than 1% of total global wealth.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ECONOMY -->
+<div class="band">
+  <div class="band-inner">
+    <p class="section-label">Part II — Economy</p>
+    <h2 class="section-title">What you <em>earn</em><br>& what you own</h2>
+    <p class="section-intro">Global GDP per capita is ~$13,000/year. But the median human — the person in the exact middle — earns far less. True equality would be transformative for most and merely inconvenient for a few.</p>
+
+
+
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="switchTab(event, 'income')">Income</button>
+      <button class="tab-btn" onclick="switchTab(event, 'spending')">Spending</button>
+      <button class="tab-btn" onclick="switchTab(event, 'assets')">Assets</button>
+      <button class="tab-btn" onclick="switchTab(event, 'wealthmap')">Global Wealth Map</button>
+    </div>
+
+    <div id="income" class="tab-panel active">
+      <p style="font-family:'EB Garamond',serif;font-size:0.62rem;color:#7a4f28;margin-bottom:1.5rem;letter-spacing:0.15em;">SCALE: US AVERAGE ($230/DAY) = 100%</p>
+      <div class="bar-group">
+        <div class="bar-row"><span class="bar-name">US average</span><div class="bar-track"><div class="bar-fill" style="width:100%;animation-delay:0s"></div></div><span class="bar-val">~$230/day</span></div>
+        <div class="bar-row"><span class="bar-name">W. Europe avg</span><div class="bar-track"><div class="bar-fill" style="width:57%;animation-delay:0.1s"></div></div><span class="bar-val">~$130/day</span></div>
+        <div class="bar-row"><span class="bar-name">Equal share</span><div class="bar-track"><div class="bar-fill" style="width:10%;animation-delay:0.2s"></div></div><span class="bar-val">$23/day</span></div>
+        <div class="bar-row"><span class="bar-name">Latin America</span><div class="bar-track"><div class="bar-fill" style="width:5.2%;animation-delay:0.3s"></div></div><span class="bar-val">~$12/day</span></div>
+        <div class="bar-row"><span class="bar-name">Global median</span><div class="bar-track"><div class="bar-fill" style="width:3.7%;animation-delay:0.4s"></div></div><span class="bar-val">~$8.50/day</span></div>
+        <div class="bar-row"><span class="bar-name">South Asia avg</span><div class="bar-track"><div class="bar-fill" style="width:1.7%;animation-delay:0.5s"></div></div><span class="bar-val">~$4/day</span></div>
+        <div class="bar-row"><span class="bar-name">Sub-Saharan avg</span><div class="bar-track"><div class="bar-fill" style="width:1.3%;animation-delay:0.6s"></div></div><span class="bar-val">~$3/day</span></div>
+      </div>
+    </div>
+
+    <div id="spending" class="tab-panel">
+      <div class="bar-group">
+        <div class="bar-row"><span class="bar-name">Food</span><div class="bar-track"><div class="bar-fill" style="width:100%;animation-delay:0s"></div></div><span class="bar-val">~30%</span></div>
+        <div class="bar-row"><span class="bar-name">Housing</span><div class="bar-track"><div class="bar-fill" style="width:87%;animation-delay:0.1s"></div></div><span class="bar-val">~26%</span></div>
+        <div class="bar-row"><span class="bar-name">Health</span><div class="bar-track"><div class="bar-fill" style="width:38%;animation-delay:0.2s"></div></div><span class="bar-val">~11%</span></div>
+        <div class="bar-row"><span class="bar-name">Transport</span><div class="bar-track"><div class="bar-fill" style="width:30%;animation-delay:0.3s"></div></div><span class="bar-val">~9%</span></div>
+        <div class="bar-row"><span class="bar-name">Education</span><div class="bar-track"><div class="bar-fill" style="width:16%;animation-delay:0.4s"></div></div><span class="bar-val">~5%</span></div>
+        <div class="bar-row"><span class="bar-name">Other</span><div class="bar-track"><div class="bar-fill" style="width:63%;animation-delay:0.5s"></div></div><span class="bar-val">~19%</span></div>
+      </div>
+    </div>
+
+    <div id="assets" class="tab-panel">
+
+      <!-- HISTOGRAM -->
+      <div style="margin-bottom:2rem;">
+        <p style="font-family:'EB Garamond',serif;font-size:0.65rem;letter-spacing:0.25em;color:var(--ochre);text-transform:uppercase;margin-bottom:0.4rem;">Global wealth distribution — share of adults by net worth bracket</p>
+        <p style="font-size:0.92rem;color:#7a4f28;line-height:1.6;margin-bottom:1.4rem;max-width:640px;">The histogram below shows what fraction of the world's adults fall into each wealth bracket. The curve is violently skewed right — most people cluster near zero while a tiny tail extends to the far right, pulling the average far above where almost anyone actually lives.</p>
+
+        <div style="position:relative;width:100%;overflow:hidden;">
+          <svg id="wealth-hist" viewBox="0 0 700 220" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+
+            <!-- background -->
+            <rect width="700" height="220" fill="#ede3c8"/>
+
+            <!-- grid lines -->
+            <line x1="60" y1="10" x2="60" y2="175" stroke="#c4b088" stroke-width="1"/>
+            <line x1="60" y1="175" x2="690" y2="175" stroke="#c4b088" stroke-width="1"/>
+            <line x1="60" y1="50"  x2="690" y2="50"  stroke="#c4b088" stroke-width="0.5" stroke-dasharray="3 4"/>
+            <line x1="60" y1="90"  x2="690" y2="90"  stroke="#c4b088" stroke-width="0.5" stroke-dasharray="3 4"/>
+            <line x1="60" y1="130" x2="690" y2="130" stroke="#c4b088" stroke-width="0.5" stroke-dasharray="3 4"/>
+
+            <!-- Y axis labels -->
+            <text x="52" y="178" text-anchor="end" font-family="'EB Garamond',serif" font-style="italic" font-size="8" fill="#2e200f">0%</text>
+            <text x="52" y="133" text-anchor="end" font-family="'EB Garamond',serif" font-style="italic" font-size="8" fill="#2e200f">10%</text>
+            <text x="52" y="93"  text-anchor="end" font-family="'EB Garamond',serif" font-style="italic" font-size="8" fill="#2e200f">20%</text>
+            <text x="52" y="53"  text-anchor="end" font-family="'EB Garamond',serif" font-style="italic" font-size="8" fill="#2e200f">30%</text>
+
+            <!-- Y axis title -->
+            <text x="12" y="120" text-anchor="middle" font-family="'EB Garamond',serif" font-style="italic" font-size="7" fill="#2e200f" transform="rotate(-90,12,120)">% OF ALL ADULTS</text>
+
+            <!-- BARS: approximate distribution from Credit Suisse data
+                 Brackets: <$1K, $1-10K, $10-100K, $100K-1M, $1M-10M, >$10M
+                 % of adults: ~14%, ~33%, ~34%, ~17%, ~1.7%, ~0.1%
+                 Bar width = 100px each, starting x=65 -->
+
+            <!-- <$1K — 14% — height=56px -->
+            <rect x="65"  y="119" width="90" height="56" fill="#3b5729" stroke="#5a8040" stroke-width="0.5"/>
+            <rect x="65"  y="119" width="90" height="56" fill="url(#barGrad1)"/>
+
+            <!-- $1K–$10K — 33% — height=132px -->
+            <rect x="165" y="43"  width="90" height="132" fill="#3b5729" stroke="#5a8040" stroke-width="0.5"/>
+            <rect x="165" y="43"  width="90" height="132" fill="url(#barGrad1)"/>
+
+            <!-- $10K–$100K — 34% — height=136px — tallest bar -->
+            <rect x="265" y="39"  width="90" height="136" fill="#3b5729" stroke="#5a8040" stroke-width="0.5"/>
+            <rect x="265" y="39"  width="90" height="136" fill="url(#barGrad1)"/>
+
+            <!-- $100K–$1M — 17% — height=68px -->
+            <rect x="365" y="107" width="90" height="68" fill="#6a8c58" stroke="#8aaa72" stroke-width="0.5"/>
+            <rect x="365" y="107" width="90" height="68" fill="url(#barGrad2)"/>
+
+            <!-- $1M–$10M — 1.7% — height=7px -->
+            <rect x="465" y="168" width="90" height="7"  fill="#b8842a" stroke="#d4a84b" stroke-width="0.5"/>
+
+            <!-- >$10M — 0.1% — height=1px (rendered as 2px min) -->
+            <rect x="565" y="173" width="90" height="2"  fill="#a04020" stroke="#c05030" stroke-width="0.5"/>
+
+            <!-- gradients -->
+            <defs>
+              <linearGradient id="barGrad1" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#3b5729" stop-opacity="0.5"/>
+                <stop offset="100%" stop-color="#3b5729" stop-opacity="0.15"/>
+              </linearGradient>
+              <linearGradient id="barGrad2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#6a8c58" stop-opacity="0.4"/>
+                <stop offset="100%" stop-color="#6a8c58" stop-opacity="0.15"/>
+              </linearGradient>
+            </defs>
+
+            <!-- X axis labels -->
+            <text x="110"  y="190" text-anchor="middle" font-family="'EB Garamond',serif" font-style="italic" font-size="7.5" fill="#7a4f28">under $1K</text>
+            <text x="210"  y="190" text-anchor="middle" font-family="'EB Garamond',serif" font-style="italic" font-size="7.5" fill="#7a4f28">$1K – $10K</text>
+            <text x="310"  y="190" text-anchor="middle" font-family="'EB Garamond',serif" font-style="italic" font-size="7.5" fill="#7a4f28">$10K – $100K</text>
+            <text x="410"  y="190" text-anchor="middle" font-family="'EB Garamond',serif" font-style="italic" font-size="7.5" fill="#7a4f28">$100K – $1M</text>
+            <text x="510"  y="190" text-anchor="middle" font-family="'EB Garamond',serif" font-style="italic" font-size="7.5" fill="#b8842a">$1M – $10M</text>
+            <text x="610"  y="190" text-anchor="middle" font-family="'EB Garamond',serif" font-style="italic" font-size="7.5" fill="#a04020">over $10M</text>
+
+            <!-- % labels on bars -->
+            <text x="110"  y="114" text-anchor="middle" font-family="'EB Garamond',serif" font-style="italic" font-size="9" fill="#3b5729">14%</text>
+            <text x="210"  y="38"  text-anchor="middle" font-family="'EB Garamond',serif" font-style="italic" font-size="9" fill="#3b5729">33%</text>
+            <text x="310"  y="34"  text-anchor="middle" font-family="'EB Garamond',serif" font-style="italic" font-size="9" fill="#3b5729">34%</text>
+            <text x="410"  y="102" text-anchor="middle" font-family="'EB Garamond',serif" font-style="italic" font-size="9" fill="#3b5729">17%</text>
+            <text x="510"  y="163" text-anchor="middle" font-family="'EB Garamond',serif" font-style="italic" font-size="9" fill="#b8842a">1.7%</text>
+            <text x="610"  y="168" text-anchor="middle" font-family="'EB Garamond',serif" font-style="italic" font-size="9" fill="#a04020">0.1%</text>
+
+            <!-- MEDIAN LINE — falls in $10K–$100K bar at ~$8K, just into that bar -->
+            <line x1="278" y1="30" x2="278" y2="175" stroke="#7a4a5a" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <text x="274" y="24" text-anchor="end" font-family="'EB Garamond',serif" font-style="italic" font-size="8" fill="#7a4a5a">MEDIAN</text>
+            <text x="274" y="33" text-anchor="end" font-family="'EB Garamond',serif" font-style="italic" font-size="8" fill="#7a4a5a">$8K</text>
+
+            <!-- AVERAGE LINE — ~$122K (total wealth incl. public ÷ adults) -->
+            <line x1="355" y1="30" x2="355" y2="175" stroke="#b8842a" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <text x="358" y="24" text-anchor="start" font-family="'EB Garamond',serif" font-style="italic" font-size="8" fill="#b8842a">AVERAGE</text>
+            <text x="358" y="33" text-anchor="start" font-family="'EB Garamond',serif" font-style="italic" font-size="8" fill="#b8842a">~$122K</text>
+
+            <!-- EQUAL SHARE LABEL (private only ~$100K; total incl. public ~$122K) -->
+            <text x="358" y="42" text-anchor="start" font-family="'EB Garamond',serif" font-style="italic" font-size="7" fill="#3b5729">= equal share (all wealth)</text>
+
+            <!-- annotation: 81% of adults are below the average -->
+            <path d="M 278 155 Q 316 148 354 155" fill="none" stroke="#7a4f28" stroke-width="1"/>
+            <text x="316" y="145" text-anchor="middle" font-family="'EB Garamond',serif" font-style="italic" font-size="7" fill="#3b5729">81% of adults</text>
+            <text x="316" y="153" text-anchor="middle" font-family="'EB Garamond',serif" font-style="italic" font-size="7" fill="#3b5729">below average</text>
+
+          </svg>
+        </div>
+
+        <div style="display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:0.8rem;">
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <div style="width:20px;height:2px;background:#7a4a5a;border-top:1px dashed #7a4a5a;"></div>
+            <span style="font-family:'EB Garamond',serif;font-size:0.6rem;color:#7a4a5a;letter-spacing:0.1em;">MEDIAN ($8K) — where most people actually are</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <div style="width:20px;height:2px;border-top:1px dashed #b8842a;"></div>
+            <span style="font-family:'EB Garamond',serif;font-size:0.6rem;color:#7a4f28;letter-spacing:0.1em;">AVERAGE ($122K) — equal-share target (private + public); pulled right by the top 1%</span>
+          </div>
+        </div>
+
+        <div style="background:var(--vellum);border:1px solid var(--card-border);border-left:3px solid var(--rust);padding:1.2rem 1.6rem;border-radius:2px;margin-top:1.4rem;">
+          <p style="font-family:'EB Garamond',serif;font-size:1rem;font-style:italic;color:#b8842a;margin-bottom:0.5rem;">Why the average feels like a lie</p>
+          <p style="font-size:0.9rem;color:var(--sepia);line-height:1.7;">81% of the world's adults sit <em>below</em> the global average net worth of ~$122K (private + public wealth). The average is not a description of typical reality — it is an accounting of total wealth divided by heads. It is the right number for the redistribution thought experiment, because it tells you exactly what each person's mathematical share would be. But it obscures that private wealth is almost entirely held by people in the top 19%, with the top 1% alone owning ~45% of all private wealth.</p>
+        </div>
+      </div>
+
+      <p style="font-family:'EB Garamond',serif;font-size:0.62rem;color:#7a4f28;margin-bottom:1rem;letter-spacing:0.15em;">REGIONAL COMPARISON &nbsp;·&nbsp; SOURCE: FEDERAL RESERVE SCF 2022, CREDIT SUISSE GLOBAL WEALTH REPORT 2023</p>
+      <div class="bar-group">
+        <div class="bar-row"><span class="bar-name">US average</span><div class="bar-track"><div class="bar-fill" style="width:100%;animation-delay:0s"></div></div><span class="bar-val">~$570K</span></div>
+        <div class="bar-row"><span class="bar-name">US median HH</span><div class="bar-track"><div class="bar-fill" style="width:33.7%;animation-delay:0.05s"></div></div><span class="bar-val">~$192K</span></div>
+        <div class="bar-row"><span class="bar-name">W. Europe avg</span><div class="bar-track"><div class="bar-fill" style="width:52.6%;animation-delay:0.1s"></div></div><span class="bar-val">~$300K</span></div>
+        <div class="bar-row"><span class="bar-name">Equal share</span><div class="bar-track"><div class="bar-fill" style="width:21.4%;animation-delay:0.15s"></div></div><span class="bar-val">~$122K</span></div>
+        <div class="bar-row"><span class="bar-name">Global median adult</span><div class="bar-track"><div class="bar-fill" style="width:1.4%;animation-delay:0.2s"></div></div><span class="bar-val">~$8K</span></div>
+        <div class="bar-row"><span class="bar-name">Bottom 50% globally</span><div class="bar-track"><div class="bar-fill" style="width:0.4%;animation-delay:0.25s"></div></div><span class="bar-val">~$2.5K</span></div>
+      </div>
+
+      <!-- WHERE IS THE WEALTH? -->
+      <div style="margin-top:2.5rem;">
+        <p style="font-family:'EB Garamond',serif;font-size:0.65rem;letter-spacing:0.25em;color:var(--ochre);text-transform:uppercase;margin-bottom:1.2rem;">Where US household wealth actually sits — by form</p>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;">
+          <div style="background:rgba(255,255,255,0.4);border:1px solid var(--card-border);border-radius:2px;padding:1.2rem;">
+            <div style="font-family:'EB Garamond',serif;font-size:1.6rem;color:var(--sage);margin-bottom:0.3rem;">~32%</div>
+            <div style="font-family:'EB Garamond',serif;font-size:0.6rem;color:var(--forest);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.5rem;">Home equity</div>
+            <div style="font-size:0.88rem;color:#7a4f28;line-height:1.6;">The largest single asset for most Americans. <em style="color:var(--sepia);">You can't spend it</em> — not without selling your home or taking on debt. For the middle 60% of households, home equity is often 60–80% of total net worth.</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.4);border:1px solid var(--card-border);border-radius:2px;padding:1.2rem;">
+            <div style="font-family:'EB Garamond',serif;font-size:1.6rem;color:var(--sage);margin-bottom:0.3rem;">~26%</div>
+            <div style="font-family:'EB Garamond',serif;font-size:0.6rem;color:var(--forest);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.5rem;">Retirement accounts</div>
+            <div style="font-size:0.88rem;color:#7a4f28;line-height:1.6;">401(k)s, IRAs, pensions. <em style="color:var(--sepia);">Locked until age 59½</em> under penalty. 45% of American households have <em>no</em> retirement savings at all. The average 401(k) balance masks that the top 10% hold the majority.</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.4);border:1px solid var(--card-border);border-radius:2px;padding:1.2rem;">
+            <div style="font-family:'EB Garamond',serif;font-size:1.6rem;color:#b8842a;margin-bottom:0.3rem;">~21%</div>
+            <div style="font-family:'EB Garamond',serif;font-size:0.6rem;color:var(--sepia);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.5rem;">Financial assets & stocks</div>
+            <div style="font-size:0.88rem;color:#7a4f28;line-height:1.6;">Stocks, bonds, mutual funds. <em style="color:var(--sepia);">The top 1% own 54% of all corporate equity.</em> The bottom 50% of Americans own less than 1% of the stock market. When markets rally, almost none of it reaches working people.</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.4);border:1px solid var(--card-border);border-radius:2px;padding:1.2rem;">
+            <div style="font-family:'EB Garamond',serif;font-size:1.6rem;color:#b8842a;margin-bottom:0.3rem;">~21%</div>
+            <div style="font-family:'EB Garamond',serif;font-size:0.6rem;color:var(--sepia);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.5rem;">Business equity & other</div>
+            <div style="font-size:0.88rem;color:#7a4f28;line-height:1.6;">Ownership stakes in private businesses, vehicles, other assets minus debts. <em style="color:var(--sepia);">Highly concentrated</em> — mostly held by the top 20%. Includes the theoretical value of businesses that may never be sold.</div>
+          </div>
+        </div>
+
+        <div style="background:var(--vellum);border:1px solid var(--card-border);border-left:3px solid var(--ochre);padding:1.2rem 1.6rem;border-radius:2px;margin-bottom:1rem;">
+          <p style="font-family:'EB Garamond',serif;font-size:0.62rem;color:#7a4f28;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.6rem;">The concentration problem</p>
+          <p style="font-size:0.92rem;color:var(--sepia);line-height:1.7;">The top <strong style="color:var(--ochre);font-weight:400;">1%</strong> of US households hold <strong style="color:var(--ochre);font-weight:400;">30%</strong> of all US wealth. The top <strong style="color:var(--ochre);font-weight:400;">10%</strong> hold <strong style="color:var(--ochre);font-weight:400;">67%</strong>. That means the bottom <strong style="color:var(--care);font-weight:400;">90%</strong> of Americans share just <strong style="color:var(--care);font-weight:400;">33%</strong> of wealth — and much of their share is illiquid home equity that cannot be easily converted into food, healthcare, or financial security during a crisis. Globally, the picture is starker: the top 10% of individuals hold <strong style="color:var(--ochre);font-weight:400;">76%</strong> of all private wealth on Earth. Adding public wealth (~$96T) raises the total to ~$550T but does little to shift the per-person picture: public assets are spread thinly and, in many countries, offset by sovereign debt.</p>
+        </div>
+
+        <div style="background:var(--vellum);border:1px solid var(--card-border);border-left:3px solid var(--rust);padding:1.2rem 1.6rem;border-radius:2px;">
+          <p style="font-family:'EB Garamond',serif;font-size:0.62rem;color:var(--sepia);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.6rem;">What "redistribution" actually means for most people</p>
+          <p style="font-size:0.92rem;color:var(--sepia);line-height:1.7;">If all global wealth — private and public combined (~$550 trillion) — were divided equally among all adults (~4.5 billion), each person would have ~$122,000. In practice, the private portion (~$454T) exists largely as <em style="color:var(--sepia);">real estate, corporate equity, and financial instruments</em> — not as cash. The public portion (~$96T) exists as infrastructure and state assets that cannot simply be handed out. True redistribution would require liquidating or restructuring those assets: transferring land deeds, issuing shares, converting corporate ownership, and delivering public services universally. It is not logistically impossible. It is politically contested because those who hold the wealth also largely hold the political power to protect it.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- GLOBAL WEALTH MAP TAB                       -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div id="wealthmap" class="tab-panel">
+
+      <p style="font-size:1rem;color:var(--sepia);line-height:1.8;max-width:680px;margin-bottom:2.5rem;">Total global wealth — private and public combined — is approximately <strong style="color:var(--ink);font-weight:500;">$550 trillion</strong>. Private wealth ($454T) is what individuals own: real estate, equities, businesses, bonds, cash. Public wealth (~$96T) is what governments hold on everyone's behalf: infrastructure, land, state enterprises, and sovereign assets, net of public debt. Below is a complete picture of what form it takes and who holds it. Sources: Credit Suisse Global Wealth Report 2023, IMF Fiscal Monitor, McKinsey Global Institute, World Bank.</p>
+
+      <!-- ── SECTION A: WHERE DOES WEALTH SIT? ── -->
+      <p style="font-family:'EB Garamond',serif;font-size:0.65rem;letter-spacing:0.25em;color:var(--ochre);text-transform:uppercase;margin-bottom:1.5rem;">A — What form does global wealth take?</p>
+
+      <!-- Stacked horizontal bar: asset classes as % of $550T -->
+      <div style="margin-bottom:0.5rem;position:relative;height:40px;border-radius:3px;overflow:hidden;display:flex;">
+        <div style="width:38%;background:#4a6a9a;display:flex;align-items:center;justify-content:center;">
+          <span style="font-family:'EB Garamond',serif;font-size:0.6rem;color:#f0f4f8;letter-spacing:0.1em;">REAL ESTATE 38%</span>
+        </div>
+        <div style="width:18%;background:#3b5729;display:flex;align-items:center;justify-content:center;">
+          <span style="font-family:'EB Garamond',serif;font-size:0.6rem;color:#dce8d4;letter-spacing:0.1em;">EQUITIES 18%</span>
+        </div>
+        <div style="width:14%;background:#8a6a30;display:flex;align-items:center;justify-content:center;">
+          <span style="font-family:'EB Garamond',serif;font-size:0.6rem;color:#f0e8c0;letter-spacing:0.1em;">PRIVATE BIZ 14%</span>
+        </div>
+        <div style="width:7%;background:#8a4030;display:flex;align-items:center;justify-content:center;">
+          <span style="font-family:'EB Garamond',serif;font-size:0.55rem;color:#f0d0c0;letter-spacing:0.08em;">BONDS 7%</span>
+        </div>
+        <div style="width:5%;background:#5a6a5a;display:flex;align-items:center;justify-content:center;">
+          <span style="font-family:'EB Garamond',serif;font-size:0.5rem;color:var(--sage);letter-spacing:0.05em;">CASH 5%</span>
+        </div>
+        <div style="width:17%;background:#4a5a6a;display:flex;align-items:center;justify-content:center;">
+          <span style="font-family:'EB Garamond',serif;font-size:0.55rem;color:#d0dce8;letter-spacing:0.08em;">PUBLIC 17%</span>
+        </div>
+      </div>
+      <p style="font-family:'EB Garamond',serif;font-size:0.58rem;color:var(--sepia);letter-spacing:0.12em;margin-bottom:2rem;">~$550 TRILLION TOTAL · PRIVATE WEALTH ($454T) + NET PUBLIC WEALTH (~$96T) · EACH SEGMENT = SHARE OF ALL GLOBAL WEALTH</p>
+
+      <!-- Asset class detail cards -->
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:2.5rem;">
+
+        <div style="background:var(--vellum);border:1px solid #b0b8c8;border-top:2px solid #4a6a9a;border-radius:3px;padding:1.2rem;">
+          <div style="font-family:'EB Garamond',serif;font-size:1.8rem;color:#4a6a9a;margin-bottom:0.2rem;">$209T</div>
+          <div style="font-family:'EB Garamond',serif;font-size:0.58rem;color:#4a6a9a;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.7rem;">Real Estate — 38%</div>
+          <div style="font-size:0.85rem;color:var(--sepia);line-height:1.65;">The single largest store of human wealth. Includes residential homes, commercial property, agricultural land. <strong style="color:#4a6a9a;font-weight:400;">~65% is residential</strong> — but most of it is owned by a small fraction of landlords and institutional investors. In many cities, large funds now own entire neighbourhoods. Your home equity is in here; so is a REIT that owns 80,000 apartments.</div>
+          <div style="margin-top:1rem;padding-top:0.8rem;border-top:1px solid var(--divider);">
+            <div style="font-family:'EB Garamond',serif;font-size:0.58rem;color:#4a6a9a;letter-spacing:0.12em;margin-bottom:0.4rem;">WHO OWNS IT</div>
+            <div style="font-size:0.82rem;color:var(--sepia);line-height:1.6;">Top 10% own ~70% of all real estate globally. Bottom 50% collectively own ~5% — often a single modest home with a large mortgage attached.</div>
+          </div>
+        </div>
+
+        <div style="background:var(--vellum);border:1px solid #aabcaa;border-top:2px solid var(--forest);border-radius:3px;padding:1.2rem;">
+          <div style="font-family:'EB Garamond',serif;font-size:1.8rem;color:var(--forest);margin-bottom:0.2rem;">$100T</div>
+          <div style="font-family:'EB Garamond',serif;font-size:0.58rem;color:var(--forest);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.7rem;">Equities — 18%</div>
+          <div style="font-size:0.85rem;color:var(--sepia);line-height:1.65;">Shares in publicly traded companies — the stock market. Includes direct ownership, pension funds, ETFs, and mutual funds. Global market cap is ~$100T. <strong style="color:var(--forest);font-weight:400;">The US stock market alone is ~$44T</strong> — nearly half the global total despite having 4% of the world's population.</div>
+          <div style="margin-top:1rem;padding-top:0.8rem;border-top:1px solid var(--divider);">
+            <div style="font-family:'EB Garamond',serif;font-size:0.58rem;color:var(--forest);letter-spacing:0.12em;margin-bottom:0.4rem;">WHO OWNS IT</div>
+            <div style="font-size:0.82rem;color:var(--sepia);line-height:1.6;">Top 1% own <strong style="color:var(--forest);font-weight:400;">54%</strong> of all global equities. Top 10% own ~89%. The bottom 50% of the world own less than 1% of the stock market.</div>
+          </div>
+        </div>
+
+        <div style="background:var(--vellum);border:1px solid var(--card-border);border-top:2px solid var(--ochre);border-radius:3px;padding:1.2rem;">
+          <div style="font-family:'EB Garamond',serif;font-size:1.8rem;color:var(--ochre);margin-bottom:0.2rem;">$77T</div>
+          <div style="font-family:'EB Garamond',serif;font-size:0.58rem;color:var(--sepia);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.7rem;">Private Business — 14%</div>
+          <div style="font-size:0.85rem;color:var(--sepia);line-height:1.65;">Ownership stakes in businesses not listed on stock exchanges — farms, family businesses, private equity-backed companies, partnerships. <strong style="color:var(--ochre);font-weight:400;">This is where extreme wealth often hides</strong>: a private company has no public share price, no disclosure requirements, and its value may be theoretical until sold.</div>
+          <div style="margin-top:1rem;padding-top:0.8rem;border-top:1px solid var(--divider);">
+            <div style="font-family:'EB Garamond',serif;font-size:0.58rem;color:var(--sepia);letter-spacing:0.12em;margin-bottom:0.4rem;">WHO OWNS IT</div>
+            <div style="font-size:0.82rem;color:var(--sepia);line-height:1.6;">Extremely concentrated. Top 10% own ~85%. Includes everything from a corner shop to a $50B private equity fund. Much of billionaire wealth is here — technically enormous, practically illiquid.</div>
+          </div>
+        </div>
+
+        <div style="background:var(--vellum);border:1px solid #c8b0b0;border-top:2px solid var(--rust);border-radius:3px;padding:1.2rem;">
+          <div style="font-family:'EB Garamond',serif;font-size:1.8rem;color:var(--rust);margin-bottom:0.2rem;">$41T</div>
+          <div style="font-family:'EB Garamond',serif;font-size:0.58rem;color:var(--rust);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.7rem;">Bonds & Fixed Income — 7%</div>
+          <div style="font-size:0.85rem;color:var(--sepia);line-height:1.65;">Government and corporate debt instruments — bonds, treasuries, gilts. When a government issues bonds, investors buy them and receive interest payments funded by tax revenue. <strong style="color:var(--rust);font-weight:400;">The interest is serviced through future tax collection.</strong></div>
+          <div style="margin-top:1rem;padding-top:0.8rem;border-top:1px solid var(--divider);">
+            <div style="font-family:'EB Garamond',serif;font-size:0.58rem;color:var(--rust);letter-spacing:0.12em;margin-bottom:0.4rem;">WHO OWNS IT</div>
+            <div style="font-size:0.82rem;color:var(--sepia);line-height:1.6;">Held primarily by institutions (pension funds, insurance companies, sovereign wealth funds) and high-net-worth individuals. Working-class people hold bonds indirectly through pension funds, if they have them.</div>
+          </div>
+        </div>
+
+        <div style="background:var(--vellum);border:1px solid #aabcaa;border-top:2px solid var(--sage);border-radius:3px;padding:1.2rem;">
+          <div style="font-family:'EB Garamond',serif;font-size:1.8rem;color:var(--sage);margin-bottom:0.2rem;">$27T</div>
+          <div style="font-family:'EB Garamond',serif;font-size:0.58rem;color:var(--forest);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.7rem;">Cash & Deposits — 5%</div>
+          <div style="font-size:0.85rem;color:var(--sepia);line-height:1.65;">Currency and bank deposits. The only asset class that is immediately accessible and spendable. <strong style="color:#9ac89a;font-weight:400;">Despite being just 6% of global wealth, this is what most people think of when they imagine "wealth."</strong> For the bottom 50%, this is often their only financial asset — and the balance is frequently negative.</div>
+          <div style="margin-top:1rem;padding-top:0.8rem;border-top:1px solid #1a2a1a;">
+            <div style="font-family:'EB Garamond',serif;font-size:0.58rem;color:var(--forest);letter-spacing:0.12em;margin-bottom:0.4rem;">WHO OWNS IT</div>
+            <div style="font-size:0.82rem;color:var(--sepia);line-height:1.6;">Even cash is unequal: the top 10% hold ~55% of global deposits. Large cash holdings are themselves an investment strategy for the ultra-wealthy — parked in high-yield accounts earning passive income unavailable to those living paycheck to paycheck.</div>
+          </div>
+        </div>
+
+        <div style="background:var(--vellum);border:1px solid #b0b0c0;border-top:2px solid var(--slate);border-radius:3px;padding:1.2rem;">
+          <div style="font-family:'EB Garamond',serif;font-size:1.8rem;color:var(--slate);margin-bottom:0.2rem;">~$96T</div>
+          <div style="font-family:'EB Garamond',serif;font-size:0.58rem;color:var(--slate);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.7rem;">Public Wealth — 17%</div>
+          <div style="font-size:0.85rem;color:var(--sepia);line-height:1.65;">Net government assets: infrastructure, public land, state-owned enterprises, sovereign wealth funds — minus public debt. Roads, hospitals, schools, water systems, national parks, and public housing all count here. <strong style="color:var(--slate-light);font-weight:400;">This is the wealth held collectively, in theory on behalf of everyone.</strong> In practice it has been steadily shrinking since the 1980s as privatisation transferred public assets into the private column.</div>
+          <div style="margin-top:1rem;padding-top:0.8rem;border-top:1px solid var(--divider);">
+            <div style="font-family:'EB Garamond',serif;font-size:0.58rem;color:var(--slate);letter-spacing:0.12em;margin-bottom:0.4rem;">WHO OWNS IT</div>
+            <div style="font-size:0.82rem;color:var(--sepia);line-height:1.6;">Everyone — in theory. But access to public goods is deeply unequal across and within countries. Net public wealth has turned negative in many advanced economies when sovereign debt is factored in. Norway ($1.4T sovereign fund) and China (vast state enterprises) are outliers. Most governments' public wealth is essentially zero or negative once debt is counted.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── SECTION B: WHO OWNS IT? ── -->
+      <p style="font-family:'EB Garamond',serif;font-size:0.65rem;letter-spacing:0.25em;color:var(--ochre);text-transform:uppercase;margin-bottom:0.4rem;">B — Who owns global wealth?</p>
+      <p style="font-size:0.92rem;color:var(--sepia);line-height:1.7;max-width:680px;margin-bottom:1.5rem;">The same ~$550 trillion, viewed from the other axis: by wealth decile. Each row below represents 10% of the world's adults — roughly 450 million people. The bar shows their share of total global wealth. Note: public wealth is held collectively, so the decile breakdown below reflects primarily the private $454T.</p>
+
+      <!-- Ownership by decile -->
+      <div style="margin-bottom:2rem;">
+
+        <div style="display:grid;grid-template-columns:90px 1fr 60px 180px;gap:0.5rem;align-items:center;margin-bottom:0.6rem;padding-bottom:0.6rem;border-bottom:1px solid #0e1a0e;">
+          <span style="font-family:'EB Garamond',serif;font-size:0.6rem;color:var(--sepia);letter-spacing:0.1em;">DECILE</span>
+          <span style="font-family:'EB Garamond',serif;font-size:0.6rem;color:var(--sepia);letter-spacing:0.1em;">SHARE OF $454T PRIVATE</span>
+          <span style="font-family:'EB Garamond',serif;font-size:0.6rem;color:var(--sepia);letter-spacing:0.1em;">%</span>
+          <span style="font-family:'EB Garamond',serif;font-size:0.6rem;color:var(--sepia);letter-spacing:0.1em;">PRIMARY ASSET HELD</span>
+        </div>
+
+        <!-- Top 1% — 45% of wealth -->
+        <div style="display:grid;grid-template-columns:90px 1fr 60px 180px;gap:0.5rem;align-items:center;margin-bottom:0.5rem;">
+          <span style="font-family:'EB Garamond',serif;font-size:0.65rem;color:var(--rust);">Top 1%</span>
+          <div style="background:transparent;border-radius:2px;height:18px;overflow:visible;"><div style="height:100%;width:45%;background:linear-gradient(to right,var(--rust),#c05030);border-radius:2px;"></div></div>
+          <span style="font-family:'EB Garamond',serif;font-size:0.65rem;color:var(--rust);">45%</span>
+          <span style="font-family:'EB Garamond',serif;font-size:0.58rem;color:var(--sepia);letter-spacing:0.08em;">Equities, private business, real estate portfolios</span>
+        </div>
+
+        <!-- 90th–99th % — 31% of wealth -->
+        <div style="display:grid;grid-template-columns:90px 1fr 60px 180px;gap:0.5rem;align-items:center;margin-bottom:0.5rem;">
+          <span style="font-family:'EB Garamond',serif;font-size:0.65rem;color:#b8842a;">90th–99th</span>
+          <div style="background:transparent;border-radius:2px;height:18px;overflow:visible;"><div style="height:100%;width:31%;background:linear-gradient(to right,var(--sepia),var(--ochre));border-radius:2px;"></div></div>
+          <span style="font-family:'EB Garamond',serif;font-size:0.65rem;color:#b8842a;">31%</span>
+          <span style="font-family:'EB Garamond',serif;font-size:0.58rem;color:var(--sepia);letter-spacing:0.08em;">Stocks, retirement funds, property</span>
+        </div>
+
+        <!-- 80th–90th — 11% of wealth -->
+        <div style="display:grid;grid-template-columns:90px 1fr 60px 180px;gap:0.5rem;align-items:center;margin-bottom:0.5rem;">
+          <span style="font-family:'EB Garamond',serif;font-size:0.65rem;color:var(--sepia);">80th–90th</span>
+          <div style="background:transparent;border-radius:2px;height:18px;overflow:visible;"><div style="height:100%;width:11%;background:linear-gradient(to right,var(--forest),var(--sage));border-radius:2px;"></div></div>
+          <span style="font-family:'EB Garamond',serif;font-size:0.65rem;color:var(--sepia);">11%</span>
+          <span style="font-family:'EB Garamond',serif;font-size:0.58rem;color:#7a4f28;letter-spacing:0.08em;">Home equity, pension, some stocks</span>
+        </div>
+
+        <!-- 60th–80th — 8% of wealth -->
+        <div style="display:grid;grid-template-columns:90px 1fr 60px 180px;gap:0.5rem;align-items:center;margin-bottom:0.5rem;">
+          <span style="font-family:'EB Garamond',serif;font-size:0.65rem;color:var(--sage);">60th–80th</span>
+          <div style="background:transparent;border-radius:2px;height:18px;overflow:visible;"><div style="height:100%;width:8%;background:linear-gradient(to right,var(--sage),var(--moss-mid));border-radius:2px;"></div></div>
+          <span style="font-family:'EB Garamond',serif;font-size:0.65rem;color:var(--sage);">8%</span>
+          <span style="font-family:'EB Garamond',serif;font-size:0.58rem;color:var(--forest);letter-spacing:0.08em;">Home equity, small savings</span>
+        </div>
+
+        <!-- 40th–60th — 4% of wealth -->
+        <div style="display:grid;grid-template-columns:90px 1fr 60px 180px;gap:0.5rem;align-items:center;margin-bottom:0.5rem;">
+          <span style="font-family:'EB Garamond',serif;font-size:0.65rem;color:var(--sage);">40th–60th</span>
+          <div style="background:transparent;border-radius:2px;height:18px;overflow:visible;"><div style="height:100%;width:4%;background:linear-gradient(to right,var(--sage),var(--forest));border-radius:2px;"></div></div>
+          <span style="font-family:'EB Garamond',serif;font-size:0.65rem;color:var(--sage);">4%</span>
+          <span style="font-family:'EB Garamond',serif;font-size:0.58rem;color:var(--forest);letter-spacing:0.08em;">Modest home or small land, cash</span>
+        </div>
+
+        <!-- 20th–40th — 1% of wealth -->
+        <div style="display:grid;grid-template-columns:90px 1fr 60px 180px;gap:0.5rem;align-items:center;margin-bottom:0.5rem;">
+          <span style="font-family:'EB Garamond',serif;font-size:0.65rem;color:var(--sepia);">20th–40th</span>
+          <div style="background:transparent;border-radius:2px;height:18px;overflow:visible;"><div style="height:100%;width:1%;background:linear-gradient(to right,#b0b8a8,#c8c0a8);border-radius:2px;"></div></div>
+          <span style="font-family:'EB Garamond',serif;font-size:0.65rem;color:var(--sepia);">1%</span>
+          <span style="font-family:'EB Garamond',serif;font-size:0.58rem;color:var(--sepia);letter-spacing:0.08em;">Informal assets, subsistence land</span>
+        </div>
+
+        <!-- Bottom 20% — 0% / negative -->
+        <div style="display:grid;grid-template-columns:90px 1fr 60px 180px;gap:0.5rem;align-items:center;margin-bottom:0.5rem;">
+          <span style="font-family:'EB Garamond',serif;font-size:0.65rem;color:var(--sepia);">Bottom 20%</span>
+          <div style="background:transparent;border-radius:2px;height:18px;overflow:visible;"><div style="height:100%;width:0.3%;background:#c8c0a8;border-radius:2px;"></div></div>
+          <span style="font-family:'EB Garamond',serif;font-size:0.65rem;color:var(--sepia);">~0%</span>
+          <span style="font-family:'EB Garamond',serif;font-size:0.58rem;color:var(--sepia);letter-spacing:0.08em;">Net negative in many cases (debt)</span>
+        </div>
+
+        <p style="font-family:'EB Garamond',serif;font-size:0.58rem;color:var(--sepia);margin-top:0.8rem;letter-spacing:0.12em;">SOURCE: CREDIT SUISSE GLOBAL WEALTH REPORT 2023 · EACH ROW ≈ 450 MILLION PEOPLE</p>
+      </div>
+
+      <!-- Summary insight boxes -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;">
+        <div style="background:var(--vellum);border:1px solid var(--card-border);border-left:3px solid var(--ochre);padding:1.2rem 1.5rem;border-radius:2px;">
+          <p style="font-family:'EB Garamond',serif;font-size:0.6rem;color:var(--sepia);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.6rem;">The stock market fallacy</p>
+          <p style="font-size:0.88rem;color:var(--sepia);line-height:1.7;">Because the bottom 90% own less than 11% of all equities globally, a 20% market rally adds ~$18 trillion to the top 10%'s net worth — roughly the entire GDP of China — while adding less than $2 trillion to the bottom 90% combined.</p>
+        </div>
+        <div style="background:var(--vellum);border:1px solid var(--card-border);border-left:3px solid var(--rust);padding:1.2rem 1.5rem;border-radius:2px;">
+          <p style="font-family:'EB Garamond',serif;font-size:0.6rem;color:var(--sepia);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.6rem;">The liquidity trap</p>
+          <p style="font-size:0.88rem;color:var(--sepia);line-height:1.7;">Most global wealth is illiquid — you cannot eat a share certificate or pay rent with an acre of land. Even the equal-share figure (~$122K per adult including public wealth, ~$100K private only) would be largely inaccessible without structural reorganisation: converting property rights, liquidating equity, transferring business ownership, and ensuring universal access to public assets. The wealth is real. The access is not.</p>
+        </div>
+      </div>
+
+    </div>
+    <!-- END WEALTHMAP TAB -->
+  </div>
+</div>
+
+<!-- CARE WORK, HEALTHCARE, EDUCATION -->
+<div class="band">
+  <div class="band-inner">
+    <p class="section-label">Part III — The Invisible Economy</p>
+    <h2 class="section-title">Care, health &amp; <em>education</em><br>— the unmeasured world</h2>
+    <p class="section-intro">These three domains form the foundation of every human society. They are also the three most underfunded, underpaid, and systematically undervalued sectors on Earth — and disproportionately performed by women.</p>
+
+    <div class="care-banner">
+      <div class="care-banner-title">$10–13 trillion in unpaid work happens every year.</div>
+      <div class="care-banner-text">The ILO estimates unpaid care work — raising children, caring for the elderly, maintaining households — represents between 10–39% of GDP in high-income countries, and would rank as the world's largest economic sector if counted. It is invisible in every national account. It is performed overwhelmingly by women. And in the equal world model, its fair valuation and redistribution between genders may be the single largest structural change.</div>
+    </div>
+
+    <div class="three-pillars">
+
+      <!-- CARE WORK -->
+      <div class="pillar-card care-col">
+        <div class="pillar-icon"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 22c0 0 1-4 6-4s5 3 8 3 4-3 8-3 6 4 6 4" stroke="#7a4a5a" stroke-width="1.5" stroke-linecap="round"/><path d="M6 22c-1 2-1 5 0 7l2 5h24l2-5c1-2 1-5 0-7" stroke="#7a4a5a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 9c0-2 1-4 3-4 1 0 2 1 2 3v6" stroke="#7a4a5a" stroke-width="1.5" stroke-linecap="round"/><path d="M20 7c0-1 1-2 2-2s2 1 2 2v6" stroke="#7a4a5a" stroke-width="1.5" stroke-linecap="round"/><path d="M13 11c0-1 1-2 2-2" stroke="#7a4a5a" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div class="pillar-label">Unpaid Care Work</div>
+        <div class="pillar-num">3.5 hrs</div>
+        <div class="pillar-detail">The average person's daily unpaid care burden. Globally this is 76% performed by women — an inequity embedded across every culture and income level.</div>
+        <div class="pillar-sub-grid">
+          <div class="pillar-sub">
+            <div class="pillar-sub-num">$10T</div>
+            <div class="pillar-sub-label">Annual value (unpaid)</div>
+          </div>
+          <div class="pillar-sub">
+            <div class="pillar-sub-num">2.4B</div>
+            <div class="pillar-sub-label">Primary caregivers</div>
+          </div>
+          <div class="pillar-sub">
+            <div class="pillar-sub-num">76%</div>
+            <div class="pillar-sub-label">Done by women</div>
+          </div>
+          <div class="pillar-sub">
+            <div class="pillar-sub-num">$0</div>
+            <div class="pillar-sub-label">Counted in GDP</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HEALTHCARE -->
+      <div class="pillar-card health-col">
+        <div class="pillar-icon"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="5" width="30" height="30" rx="3" stroke="#4a8a7a" stroke-width="1.5"/><path d="M20 12v16M12 20h16" stroke="#4a8a7a" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <div class="pillar-label">Healthcare</div>
+        <div class="pillar-num">67 / 100</div>
+        <div class="pillar-detail">The WHO Universal Health Coverage index. Half the world lacks access to basic services. 2 billion people face catastrophic health spending — illness triggers poverty. 67% of the global health workforce are women, earning 24% less than male colleagues.</div>
+        <div class="pillar-sub-grid">
+          <div class="pillar-sub">
+            <div class="pillar-sub-num">50%</div>
+            <div class="pillar-sub-label">Lack essential care</div>
+          </div>
+          <div class="pillar-sub">
+            <div class="pillar-sub-num">2B</div>
+            <div class="pillar-sub-label">Catastrophic spending</div>
+          </div>
+          <div class="pillar-sub">
+            <div class="pillar-sub-num">67%</div>
+            <div class="pillar-sub-label">Workforce female</div>
+          </div>
+          <div class="pillar-sub">
+            <div class="pillar-sub-num">−24%</div>
+            <div class="pillar-sub-label">Women's pay gap</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EDUCATION -->
+      <div class="pillar-card edu-col">
+        <div class="pillar-icon"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 32V12" stroke="#7a6a3a" stroke-width="1.5" stroke-linecap="round"/><path d="M20 12C20 12 14 8 6 9V30c8-1 14 3 14 3" stroke="#7a6a3a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 12C20 12 26 8 34 9V30c-8-1-14 3-14 3" stroke="#7a6a3a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 14v10M10 26v2" stroke="#7a6a3a" stroke-width="1" stroke-linecap="round" opacity="0.5"/><path d="M30 14v10M30 26v2" stroke="#7a6a3a" stroke-width="1" stroke-linecap="round" opacity="0.5"/></svg></div>
+        <div class="pillar-label">Education</div>
+        <div class="pillar-num">8 years</div>
+        <div class="pillar-detail">Mean years of schooling globally. 773 million adults are illiterate — 63% are women. Teachers are among the most important workers in any society, yet in low-income countries earn a fraction of a living wage. 258 million children are still out of school.</div>
+        <div class="pillar-sub-grid">
+          <div class="pillar-sub">
+            <div class="pillar-sub-num">773M</div>
+            <div class="pillar-sub-label">Illiterate adults</div>
+          </div>
+          <div class="pillar-sub">
+            <div class="pillar-sub-num">258M</div>
+            <div class="pillar-sub-label">Children out of school</div>
+          </div>
+          <div class="pillar-sub">
+            <div class="pillar-sub-num">63%</div>
+            <div class="pillar-sub-label">Illiteracy is female</div>
+          </div>
+          <div class="pillar-sub">
+            <div class="pillar-sub-num">#1</div>
+            <div class="pillar-sub-label">Return on investment</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- UNPAID WORK CLOCK -->
+    <div style="margin-top:4rem;">
+      <p class="section-label" style="margin-bottom:1.5rem;">The equal world day — 24 hours, averaged across all adults</p>
+      <div class="clock-section">
+        <div class="clock-ring">
+          <svg width="200" height="200" viewBox="0 0 200 200">
+            <!-- Sleep 7hrs = 29% = 146 units -->
+            <circle cx="100" cy="100" r="80" fill="none" stroke="#2a3820" stroke-width="24"
+              stroke-dasharray="146 356" stroke-dashoffset="0"/>
+            <!-- Paid work 4.4hrs = 18% = 92 units -->
+            <circle cx="100" cy="100" r="80" fill="none" stroke="#3d5a28" stroke-width="24"
+              stroke-dasharray="92 356" stroke-dashoffset="-146"/>
+            <!-- Unpaid care 3.0hrs = 12.5% = 63 units -->
+            <circle cx="100" cy="100" r="80" fill="none" stroke="#7a4a68" stroke-width="24"
+              stroke-dasharray="63 356" stroke-dashoffset="-238"/>
+            <!-- Personal care & eating 2.5hrs = 10% = 52 units -->
+            <circle cx="100" cy="100" r="80" fill="none" stroke="#4a4030" stroke-width="24"
+              stroke-dasharray="52 356" stroke-dashoffset="-301"/>
+            <!-- Leisure 5hrs = 21% = 105 units -->
+            <circle cx="100" cy="100" r="80" fill="none" stroke="#2a5a50" stroke-width="24"
+              stroke-dasharray="105 356" stroke-dashoffset="-353"/>
+            <!-- Transition/wind down 2.1hrs = 8.5% = 44 units -->
+            <circle cx="100" cy="100" r="80" fill="none" stroke="#1e2a18" stroke-width="24"
+              stroke-dasharray="44 356" stroke-dashoffset="-458"/>
+          </svg>
+          <div class="clock-center">
+            <div class="clock-center-num">24h</div>
+            <div class="clock-center-label">avg day</div>
+          </div>
+        </div>
+        <div class="clock-legend">
+          <div class="clock-legend-item">
+            <div class="legend-dot" style="background:var(--forest)"></div>
+            <div class="legend-text"><strong>Sleep — 7 hrs</strong> (29%) — Global average; uninterrupted in the equal world</div>
+          </div>
+          <div class="clock-legend-item">
+            <div class="legend-dot" style="background:var(--sage)"></div>
+            <div class="legend-text"><strong>Paid work — 4.4 hrs</strong> (18%) — All paid labour on Earth divided equally across all adults</div>
+          </div>
+          <div class="clock-legend-item">
+            <div class="legend-dot" style="background:var(--care)"></div>
+            <div class="legend-text"><strong>Unpaid care work — 3.0 hrs</strong> (12.5%) — Equal share; today women do 4.5 hrs and men 1.6 hrs</div>
+          </div>
+          <div class="clock-legend-item">
+            <div class="legend-dot" style="background:var(--sepia)"></div>
+            <div class="legend-text"><strong>Personal care & eating — 2.5 hrs</strong> (10%) — Hygiene, meals, health</div>
+          </div>
+          <div class="clock-legend-item">
+            <div class="legend-dot" style="background:var(--health)"></div>
+            <div class="legend-text"><strong>Leisure &amp; social — 5 hrs</strong> (21%) — Global average at equal distribution; today this ranges from under 2 hrs for the working poor to over 7 hrs for the wealthy</div>
+          </div>
+          <div class="clock-legend-item">
+            <div class="legend-dot" style="background:var(--ink-soft)"></div>
+            <div class="legend-text"><strong>Transition &amp; wind-down — 2.1 hrs</strong> (8.5%) — Commuting, preparing for sleep, unstructured time</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARE EQUALITY COMPARISON -->
+    <div style="margin-top:4rem;">
+      <h3 style="font-family:'EB Garamond',serif;font-size:1.6rem;font-weight:400;color:var(--paper);margin-bottom:0.5rem;">Current reality <em style="color:var(--ochre)">vs.</em> if work were shared equally</h3>
+      <p style="font-size:1rem;color:var(--sepia);line-height:1.7;max-width:680px;margin-bottom:0.5rem;">
+        "Equal distribution" here means one specific thing: <strong style="color:var(--care);font-weight:400;">all work — paid and unpaid — redistributed equally between men and women.</strong> The total hours of work done globally don't change. What changes is who does which kind. Currently women do far more unpaid care and far less paid work than men; in an equal model, both shares converge.
+      </p>
+      <p style="font-family:'EB Garamond',serif;font-size:0.62rem;color:var(--sepia);margin-bottom:2rem;letter-spacing:0.15em;">SOURCE: ILO TIME-USE DATA 2023 · HOURS PER DAY AVERAGED ACROSS ALL ADULTS GLOBALLY</p>
+
+      <p style="font-family:'EB Garamond',serif;font-size:0.65rem;letter-spacing:0.25em;color:var(--ochre);text-transform:uppercase;margin-bottom:0.4rem;">Paid work hours per day</p>
+      <p style="font-family:'EB Garamond',serif;font-size:0.58rem;color:#2e200f;letter-spacing:0.12em;margin-bottom:1.2rem;">AVERAGED ACROSS ALL ADULTS (EMPLOYED + UNEMPLOYED + RETIRED + PART-TIME) · AMONG THE EMPLOYED ONLY, THE FIGURE IS ~8–9 HRS/DAY</p>
+
+      <div style="margin-bottom:2.5rem;">
+        <div class="bar-row" style="margin-bottom:0.8rem;">
+          <span class="bar-name" style="color:var(--slate);">Men (current)</span>
+          <div class="bar-track"><div class="bar-fill" style="width:100%;background:linear-gradient(to right,#2a5a7a,#7ab3c4);animation-delay:0s"></div></div>
+          <span class="bar-val" style="color:var(--slate);">5.3 hrs</span>
+        </div>
+        <div class="bar-row" style="margin-bottom:0.8rem;">
+          <span class="bar-name" style="color:var(--care);">Women (current)</span>
+          <div class="bar-track"><div class="bar-fill" style="width:62%;background:linear-gradient(to right,#6a2a58,#c49ab5);animation-delay:0.1s"></div></div>
+          <span class="bar-val" style="color:var(--care);">3.3 hrs</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-name" style="color:var(--sage);">Equal share</span>
+          <div class="bar-track"><div class="bar-fill" style="width:83%;background:linear-gradient(to right,#2a5a2a,#a8c49a);animation-delay:0.2s"></div></div>
+          <span class="bar-val" style="color:var(--sage);">4.4 hrs</span>
+        </div>
+        <p style="font-family:'EB Garamond',serif;font-size:0.6rem;color:var(--sepia);margin-top:0.8rem;letter-spacing:0.12em;">EQUAL SHARE = GLOBAL TOTAL PAID WORK HOURS ÷ ALL ADULTS · NO NEW WORK CREATED, JUST REDISTRIBUTED</p>
+      </div>
+
+      <!-- GENDER WORK BREAKDOWN — UNPAID -->
+      <p style="font-family:'EB Garamond',serif;font-size:0.65rem;letter-spacing:0.25em;color:var(--ochre);text-transform:uppercase;margin-bottom:1.2rem;">Unpaid care work hours per day</p>
+
+      <div style="margin-bottom:3rem;">
+        <div class="bar-row" style="margin-bottom:0.8rem;">
+          <span class="bar-name" style="color:var(--care);">Women (current)</span>
+          <div class="bar-track"><div class="bar-fill" style="width:100%;background:linear-gradient(to right,#6a2a58,#c49ab5);animation-delay:0s"></div></div>
+          <span class="bar-val" style="color:var(--care);">4.5 hrs</span>
+        </div>
+        <div class="bar-row" style="margin-bottom:0.8rem;">
+          <span class="bar-name" style="color:var(--slate);">Men (current)</span>
+          <div class="bar-track"><div class="bar-fill" style="width:36%;background:linear-gradient(to right,#2a5a7a,#7ab3c4);animation-delay:0.1s"></div></div>
+          <span class="bar-val" style="color:var(--slate);">1.6 hrs</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-name" style="color:var(--sage);">Equal share</span>
+          <div class="bar-track"><div class="bar-fill" style="width:68%;background:linear-gradient(to right,#2a5a2a,#a8c49a);animation-delay:0.2s"></div></div>
+          <span class="bar-val" style="color:var(--sage);">3.0 hrs</span>
+        </div>
+        <p style="font-family:'EB Garamond',serif;font-size:0.6rem;color:var(--sepia);margin-top:0.8rem;letter-spacing:0.12em;">EQUAL SHARE = GLOBAL TOTAL UNPAID CARE HOURS ÷ ALL ADULTS · THE TOTAL BURDEN ALSO FALLS WHEN SHARED — EFFICIENCY GAINS FROM SPECIALISATION AND INFRASTRUCTURE</p>
+      </div>
+
+    </div>
+
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- LAND & PLANET -->
+<section>
+  <p class="section-label">Part V — The Planet</p>
+  <h2 class="section-title">Your equal <em>share</em><br>of Earth</h2>
+  <p class="section-intro">All land, water, and resources — split by 8.1 billion. What does each person's "share" actually look like?</p>
+
+  <!-- Country selector -->
+  <div class="partv-country-bar">
+    <span class="partv-country-label">Compare a country</span>
+    <select class="partv-country-select" id="partvSelect" onchange="loadPartvCountry(this.value)">
+      <option value="">— select country —</option>
+      <option>Afghanistan</option><option>Argentina</option><option>Australia</option>
+      <option>Bangladesh</option><option>Bolivia</option><option>Brazil</option>
+      <option>Cambodia</option><option>Cameroon</option><option>Canada</option>
+      <option>Chile</option><option>China</option><option>Colombia</option>
+      <option>Congo (DRC)</option><option>Costa Rica</option><option>Cuba</option>
+      <option>Denmark</option><option>Ecuador</option><option>Egypt</option>
+      <option>Ethiopia</option><option>Finland</option><option>France</option>
+      <option>Germany</option><option>Ghana</option><option>Guatemala</option>
+      <option>Haiti</option><option>Honduras</option><option>India</option>
+      <option>Indonesia</option><option>Iran</option><option>Iraq</option>
+      <option>Ireland</option><option>Israel</option><option>Italy</option>
+      <option>Japan</option><option>Jordan</option><option>Kenya</option>
+      <option>Madagascar</option><option>Malawi</option><option>Malaysia</option>
+      <option>Mali</option><option>Mexico</option><option>Morocco</option>
+      <option>Mozambique</option><option>Myanmar</option><option>Nepal</option>
+      <option>Netherlands</option><option>New Zealand</option><option>Nicaragua</option>
+      <option>Nigeria</option><option>Norway</option><option>Pakistan</option>
+      <option>Peru</option><option>Philippines</option><option>Poland</option>
+      <option>Portugal</option><option>Romania</option><option>Russia</option>
+      <option>Rwanda</option><option>Saudi Arabia</option><option>Senegal</option>
+      <option>South Africa</option><option>South Korea</option><option>Spain</option>
+      <option>Sri Lanka</option><option>Sudan</option><option>Sweden</option>
+      <option>Switzerland</option><option>Tanzania</option><option>Thailand</option>
+      <option>Turkey</option><option>Uganda</option><option>Ukraine</option>
+      <option>United Kingdom</option><option>United States</option><option>Uruguay</option>
+      <option>Venezuela</option><option>Vietnam</option><option>Yemen</option>
+      <option>Zambia</option><option>Zimbabwe</option>
+    </select>
+    <div class="partv-country-status" id="partvStatus">
+      <div class="partv-spinner" id="partvSpinner"></div>
+      <span id="partvStatusText"></span>
+    </div>
+    <button class="partv-clear-btn" id="partvClearBtn" onclick="clearPartvCountry()">✕ clear</button>
+  </div>
+
+  <div class="equality-grid">
+
+    <!-- ── CALORIES ── -->
+    <div class="equality-card">
+      <div class="eq-num">2,500</div>
+      <div class="eq-label">Food calories available</div>
+      <div class="eq-desc">Global food production is ~2,500 kcal/person/day — technically enough to feed everyone. 800 million people still go hungry due entirely to distribution and economics, not scarcity.</div>
+      <div class="eq-you-row" id="you-calories">
+        <span class="eq-you-flag" id="you-calories-flag">you</span>
+        <span class="eq-you-val" id="you-calories-val"></span>
+        <span class="eq-you-delta" id="you-calories-delta"></span>
+      </div>
+      <div class="eq-country-row" id="country-calories">
+        <span class="eq-country-flag" id="country-calories-flag"></span>
+        <span class="eq-country-val" id="country-calories-val"></span>
+        <span class="eq-country-delta" id="country-calories-delta"></span>
+      </div>
+      <button class="eq-expand-btn" onclick="toggleExpand(this)">
+        <span class="arrow">▶</span> breakdown by food group
+      </button>
+      <div class="eq-subcards">
+        <div class="eq-subcard">
+          <span class="eq-subcard-name">Cereals &amp; grains</span>
+          <span class="eq-subcard-val">~1,050 kcal</span>
+          <span class="eq-subcard-note">Rice, wheat, maize — the global caloric backbone. Provides ~42% of all food energy. Unevenly distributed: rich countries waste ~30% of grain production.</span>
+        </div>
+        <div class="eq-subcard">
+          <span class="eq-subcard-name">Vegetable oils &amp; fats</span>
+          <span class="eq-subcard-val">~420 kcal</span>
+          <span class="eq-subcard-note">Palm, soy, sunflower oils. Calorie-dense and globally traded. Production has tripled since 1980 — much goes to processed food and biofuel, not nutrition.</span>
+        </div>
+        <div class="eq-subcard">
+          <span class="eq-subcard-name">Sugar &amp; sweeteners</span>
+          <span class="eq-subcard-val">~350 kcal</span>
+          <span class="eq-subcard-note">Cane sugar, beet sugar, corn syrup. High-income countries consume 3–4× their equal share. Obesity and diabetes follow the sugar supply chain.</span>
+        </div>
+        <div class="eq-subcard">
+          <span class="eq-subcard-name">Meat, fish &amp; dairy</span>
+          <span class="eq-subcard-val">~420 kcal</span>
+          <span class="eq-subcard-note">Animal-sourced protein. Requires ~8× more land per calorie than cereals. Rich-world consumption accounts for the majority of livestock emissions globally.</span>
+        </div>
+        <div class="eq-subcard">
+          <span class="eq-subcard-name">Vegetables, fruit &amp; legumes</span>
+          <span class="eq-subcard-val">~260 kcal</span>
+          <span class="eq-subcard-note">The most nutritionally dense category per calorie — and the most under-consumed in both rich and poor countries for different reasons: cost vs. preference.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── WATER ── -->
+    <div class="equality-card">
+      <div class="eq-num">474 L</div>
+      <div class="eq-label">Fresh water per day</div>
+      <div class="eq-desc">Global renewable freshwater per capita per day — but geographically fixed. Equal water rights mean nothing if you're born in the Sahara. Location remains a stubborn inequality.</div>
+      <div class="eq-you-row" id="you-water">
+        <span class="eq-you-flag" id="you-water-flag">you</span>
+        <span class="eq-you-val" id="you-water-val"></span>
+        <span class="eq-you-delta" id="you-water-delta"></span>
+      </div>
+      <div class="eq-country-row" id="country-water">
+        <span class="eq-country-flag" id="country-water-flag"></span>
+        <span class="eq-country-val" id="country-water-val"></span>
+        <span class="eq-country-delta" id="country-water-delta"></span>
+      </div>
+      <button class="eq-expand-btn" onclick="toggleExpand(this)">
+        <span class="arrow">▶</span> breakdown by daily use
+      </button>
+      <div class="eq-subcards">
+        <div class="eq-subcard">
+          <span class="eq-subcard-name">Agriculture &amp; irrigation</span>
+          <span class="eq-subcard-val">~334 L</span>
+          <span class="eq-subcard-note">~70% of all freshwater withdrawal globally. Growing one kilogram of beef requires ~15,000 litres of water — that's 41 days of your equal share, embedded invisibly in a single meal.</span>
+        </div>
+        <div class="eq-subcard">
+          <span class="eq-subcard-name">Industrial &amp; energy use</span>
+          <span class="eq-subcard-val">~96 L</span>
+          <span class="eq-subcard-note">Cooling power plants, manufacturing, mining. Almost entirely invisible to consumers but accounts for ~20% of withdrawals.</span>
+        </div>
+        <div class="eq-subcard">
+          <span class="eq-subcard-name">Drinking &amp; cooking</span>
+          <span class="eq-subcard-val">~1.5 L</span>
+          <span class="eq-subcard-note">The minimum safe daily amount is ~50 litres per person — 33× your equal share of drinking water. 2 billion people lack reliable access even to this minimum. The equal share is abundant; the infrastructure to deliver it is not.</span>
+        </div>
+        <div class="eq-subcard">
+          <span class="eq-subcard-name">Sanitation &amp; hygiene</span>
+          <span class="eq-subcard-val">~4.9 L</span>
+          <span class="eq-subcard-note">Toilets, washing, waste disposal. 3.6 billion people lack safely managed sanitation. Waterborne disease kills more children than war.</span>
+        </div>
+        <div class="eq-subcard">
+          <span class="eq-subcard-name">Ecosystems &amp; nature</span>
+          <span class="eq-subcard-val">~36 L</span>
+          <span class="eq-subcard-note">Water that stays in rivers, wetlands, and aquifers to sustain biodiversity. Environmental flows are chronically over-allocated — rivers run dry before reaching the sea.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── ENERGY ── -->
+    <div class="equality-card">
+      <div class="eq-num">4.5 kW</div>
+      <div class="eq-label">Energy share per person</div>
+      <div class="eq-desc">World energy consumption divided equally. Americans use ~3× their share. Sub-Saharan Africans use about 10% of theirs. Equal energy = significant lifestyle shift for the rich world.</div>
+      <div class="eq-you-row" id="you-energy">
+        <span class="eq-you-flag" id="you-energy-flag">you</span>
+        <span class="eq-you-val" id="you-energy-val"></span>
+        <span class="eq-you-delta" id="you-energy-delta"></span>
+      </div>
+      <div class="eq-country-row" id="country-energy">
+        <span class="eq-country-flag" id="country-energy-flag"></span>
+        <span class="eq-country-val" id="country-energy-val"></span>
+        <span class="eq-country-delta" id="country-energy-delta"></span>
+      </div>
+      <button class="eq-expand-btn" onclick="toggleExpand(this)">
+        <span class="arrow">▶</span> breakdown by source
+      </button>
+      <div class="eq-subcards">
+        <div class="eq-subcard">
+          <span class="eq-subcard-name">Oil &amp; petroleum</span>
+          <span class="eq-subcard-val">~1.35 kW &nbsp;·&nbsp; 32 kWh/day</span>
+          <span class="eq-subcard-note">~30% of global primary energy. 32 kWh is roughly 3.5 litres of petrol — enough to drive ~35 km in an average car. Powers almost all transport. Owned and controlled by fewer than 15 states and a handful of corporations.</span>
+        </div>
+        <div class="eq-subcard">
+          <span class="eq-subcard-name">Coal</span>
+          <span class="eq-subcard-val">~1.13 kW &nbsp;·&nbsp; 27 kWh/day</span>
+          <span class="eq-subcard-note">~25% of energy, ~40% of electricity. 27 kWh is roughly 3.6 kg of coal — a small bucketful — burned every day on your behalf. Cheapest to build but most carbon-intensive. Phaseout is uneven — rich countries are retiring plants while lower-income ones are still building them.</span>
+        </div>
+        <div class="eq-subcard">
+          <span class="eq-subcard-name">Natural gas</span>
+          <span class="eq-subcard-val">~1.08 kW &nbsp;·&nbsp; 26 kWh/day</span>
+          <span class="eq-subcard-note">~24% of energy. 26 kWh is about 2.6 m³ of gas — roughly what it takes to heat a typical home for one winter day. Marketed as a "transition fuel" but methane leaks make its climate impact far worse than CO₂ figures suggest.</span>
+        </div>
+        <div class="eq-subcard">
+          <span class="eq-subcard-name">Renewables (solar, wind, hydro)</span>
+          <span class="eq-subcard-val">~0.63 kW &nbsp;·&nbsp; 15 kWh/day</span>
+          <span class="eq-subcard-note">~14% of energy and growing fast. 15 kWh is enough to run a household fridge for two weeks, or fully charge a laptop ~15 times. Costs have dropped 90% in a decade — the fastest-growing category, but deployment is still concentrated in wealthy nations.</span>
+        </div>
+        <div class="eq-subcard">
+          <span class="eq-subcard-name">Nuclear &amp; other</span>
+          <span class="eq-subcard-val">~0.31 kW &nbsp;·&nbsp; 7.4 kWh/day</span>
+          <span class="eq-subcard-note">~7% of energy. 7.4 kWh is roughly 2–3 hot showers, or a laptop running all day. Produces minimal CO₂ per kWh but high capital cost and political controversy limit expansion.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CO₂ ── -->
+    <div class="equality-card">
+      <div class="eq-num">0.5 t</div>
+      <div class="eq-label">CO₂ budget per year</div>
+      <div class="eq-desc">To stay within 1.5°C of warming, each person gets ~0.5 tonnes of CO₂ per year. The average American emits 14–16 tonnes. The average Malawian: 0.1 tonnes.</div>
+      <div class="eq-you-row" id="you-co2">
+        <span class="eq-you-flag" id="you-co2-flag">you</span>
+        <span class="eq-you-val" id="you-co2-val"></span>
+        <span class="eq-you-delta" id="you-co2-delta"></span>
+      </div>
+      <div class="eq-country-row" id="country-co2">
+        <span class="eq-country-flag" id="country-co2-flag"></span>
+        <span class="eq-country-val" id="country-co2-val"></span>
+        <span class="eq-country-delta" id="country-co2-delta"></span>
+      </div>
+      <button class="eq-expand-btn" onclick="toggleExpand(this)">
+        <span class="arrow">▶</span> breakdown by source
+      </button>
+      <div class="eq-subcards">
+        <div class="eq-subcard">
+          <span class="eq-subcard-name">Transport</span>
+          <span class="eq-subcard-val">~1.9 t avg</span>
+          <span class="eq-subcard-note">Cars, aviation, shipping. The most visible personal emission source — but aviation alone accounts for ~2.5% of global CO₂ yet is used by fewer than 10% of people annually.</span>
+        </div>
+        <div class="eq-subcard">
+          <span class="eq-subcard-name">Home energy</span>
+          <span class="eq-subcard-val">~1.4 t avg</span>
+          <span class="eq-subcard-note">Heating, cooling, electricity. Varies enormously by grid: a kWh in Norway (hydro) emits ~10g CO₂; in Poland (coal) ~800g. Same appliance, 80× the impact.</span>
+        </div>
+        <div class="eq-subcard">
+          <span class="eq-subcard-name">Food system</span>
+          <span class="eq-subcard-val">~1.3 t avg</span>
+          <span class="eq-subcard-note">Agriculture, processing, packaging, waste. Beef produces ~60kg CO₂ per kg of protein — 20× more than tofu. Shifting diets could cut food emissions by 50%.</span>
+        </div>
+        <div class="eq-subcard">
+          <span class="eq-subcard-name">Goods &amp; consumption</span>
+          <span class="eq-subcard-val">~1.0 t avg</span>
+          <span class="eq-subcard-note">Clothing, electronics, construction materials. Mostly "hidden" in supply chains. Fast fashion alone produces more CO₂ annually than aviation and shipping combined.</span>
+        </div>
+        <div class="eq-subcard">
+          <span class="eq-subcard-name">Services &amp; public sector</span>
+          <span class="eq-subcard-val">~0.9 t avg</span>
+          <span class="eq-subcard-note">Government, healthcare, education infrastructure. Often excluded from personal carbon footprint calculators — but roads, hospitals, and data centres all burn carbon on your behalf.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── WEALTH ── -->
+    <div class="equality-card">
+      <div class="eq-num">$122K</div>
+      <div class="eq-label">Net wealth per adult</div>
+      <div class="eq-desc">Total global wealth — private ($454T) and public (~$96T) combined (~$550 trillion) — divided by ~4.5 billion adults. This includes all privately held assets plus government net assets (infrastructure, land, state enterprises). The current global median adult holds just ~$8,000. 90% of humanity would gain significantly from full redistribution.</div>
+      <div class="eq-you-row" id="you-wealth">
+        <span class="eq-you-flag" id="you-wealth-flag">you</span>
+        <span class="eq-you-val" id="you-wealth-val"></span>
+        <span class="eq-you-delta" id="you-wealth-delta"></span>
+      </div>
+      <div class="eq-country-row" id="country-wealth">
+        <span class="eq-country-flag" id="country-wealth-flag"></span>
+        <span class="eq-country-val" id="country-wealth-val"></span>
+        <span class="eq-country-delta" id="country-wealth-delta"></span>
+      </div>
+    </div>
+
+    <!-- ── LAND, HOUSING & ARABLE ── full width -->
+    <div class="equality-card full-width">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;align-items:start;">
+
+        <div>
+          <div class="eq-num">5.5 ac</div>
+          <div class="eq-label">Total land per person</div>
+          <div class="eq-desc">Total habitable land (~10B acres) divided equally. Enough for a small farm, a home, some forest. In reality, 1% of the world's population owns ~70% of all land.</div>
+        </div>
+
+        <div>
+          <div class="eq-num">0.40 ha</div>
+          <div class="eq-label">Arable land per person</div>
+          <div class="eq-desc">Farmable land that can grow food (~1.4B ha total). The current average is just 0.19 ha — half the equal share. ~0.2 ha is the minimum needed for food self-sufficiency. Urban billions have none.</div>
+        </div>
+
+        <div>
+          <div class="eq-num">730 sq ft</div>
+          <div class="eq-label">Housing space per person</div>
+          <div class="eq-desc">Total global floor area divided equally across all people. The current average is ~650 sq ft. In high-income countries the average exceeds 1,000 sq ft; in low-income countries, under 200.</div>
+          <div class="eq-you-row" id="you-housing">
+            <span class="eq-you-flag" id="you-housing-flag">you</span>
+            <span class="eq-you-val" id="you-housing-val"></span>
+            <span class="eq-you-delta" id="you-housing-delta"></span>
+          </div>
+          <div class="eq-country-row" id="country-housing">
+            <span class="eq-country-flag" id="country-housing-flag"></span>
+            <span class="eq-country-val" id="country-housing-val"></span>
+            <span class="eq-country-delta" id="country-housing-delta"></span>
+          </div>
+        </div>
+
+      </div>
+      <button class="eq-expand-btn" onclick="toggleExpand(this)" style="margin-top:1.5rem;">
+        <span class="arrow">▶</span> breakdown by land type
+      </button>
+      <div class="eq-subcards">
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.6rem;">
+          <div class="eq-subcard">
+            <span class="eq-subcard-name">Agricultural land</span>
+            <span class="eq-subcard-val">~1.9 ac</span>
+            <span class="eq-subcard-note">Cropland + permanent pasture. Highly concentrated — large agribusiness owns the majority. Family farms of under 2 ha produce ~35% of the world's food.</span>
+          </div>
+          <div class="eq-subcard">
+            <span class="eq-subcard-name">Forest &amp; woodland</span>
+            <span class="eq-subcard-val">~2.0 ac</span>
+            <span class="eq-subcard-note">Vital carbon sinks and biodiversity habitat. 10 million hectares are lost per year to deforestation — mostly driven by cattle ranching and palm oil expansion.</span>
+          </div>
+          <div class="eq-subcard">
+            <span class="eq-subcard-name">Urban &amp; built land</span>
+            <span class="eq-subcard-val">~0.07 ac</span>
+            <span class="eq-subcard-note">Cities, roads, infrastructure. Only ~1% of habitable land but where ~57% of people now live. Urban land values are among the most unequal assets on Earth.</span>
+          </div>
+          <div class="eq-subcard">
+            <span class="eq-subcard-name">Freshwater &amp; wetlands</span>
+            <span class="eq-subcard-val">~0.25 ac</span>
+            <span class="eq-subcard-note">Rivers, lakes, swamps. Among the most biodiverse ecosystems per acre — and the fastest disappearing, with ~35% of wetlands lost since 1970.</span>
+          </div>
+          <div class="eq-subcard">
+            <span class="eq-subcard-name">Shrub, grassland &amp; other</span>
+            <span class="eq-subcard-val">~1.3 ac</span>
+            <span class="eq-subcard-note">Semi-arid land, savanna, tundra. Not conventionally "productive" but essential for grazing, carbon storage, and indigenous livelihoods across the Global South.</span>
+          </div>
+          <div class="eq-subcard">
+            <span class="eq-subcard-name">Protected &amp; wilderness</span>
+            <span class="eq-subcard-val">~0.5 ac</span>
+            <span class="eq-subcard-note">National parks, marine reserves, indigenous territories. Only ~17% of land is currently protected — far short of the 30% target agreed at COP15 in 2022.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CLOSING -->
+<section style="text-align:center; max-width:700px;">
+  <p class="section-label">Reflection</p>
+  <h2 class="section-title" style="text-align:center;">We have <em>enough</em>.<br>Always have.</h2>
+  <p class="section-intro" style="margin:1.5rem auto; text-align:center;">The data is clear: scarcity is not the problem. The Earth produces sufficient food, energy, water, and shelter for every person alive. What we face is a problem of distribution — maintained by borders, governance structures, inheritance, and historical accumulation. And beneath all of it, an entire economy of care, healing, and teaching that props up every other system while being counted as worth nothing. The average human is not living poorly because resources are scarce. They are living poorly because those resources — and the labor that sustains them — were captured and rendered invisible before they were born.</p>
+
+
+</section>
+
+<footer>
+  <p>
+    ONE PERSON — A global data portrait<br>
+    Data sources: World Bank · UN Human Development Report · Credit Suisse Wealth Report<br>
+    ILO Labour Statistics · ILO Care Work & Care Jobs Report · Our World in Data · Global Carbon Project<br>
+    FAO Food Data · WHO Universal Health Coverage Index · UNESCO Education Statistics<br><br>
+    <span style="color:#2e200f">— All figures represent global averages or medians as of 2022–2024 —</span>
+  </p>
+</footer>
+
+<script>
+
+
+
+  // ── ABOUT YOU ────────────────────────────────────────────────────────────
+
+  function showYouRow(id, val, formattedVal, globalVal) {
+    const row = document.getElementById('you-' + id);
+    if (!row) return;
+    document.getElementById('you-' + id + '-val').textContent = formattedVal;
+    const pct = ((val - globalVal) / globalVal * 100).toFixed(0);
+    const absPct = Math.abs(pct);
+    const deltaEl = document.getElementById('you-' + id + '-delta');
+    if (absPct < 4) {
+      deltaEl.textContent = '≈ equal share';
+      deltaEl.className = 'eq-you-delta';
+    } else if (val > globalVal) {
+      deltaEl.textContent = absPct + '% above equal share';
+      deltaEl.className = 'eq-you-delta above';
+    } else {
+      deltaEl.textContent = absPct + '% below equal share';
+      deltaEl.className = 'eq-you-delta below';
+    }
+    row.classList.add('visible');
+  }
+
+  function clearYouRows() {
+    ['calories','water','energy','co2','wealth','housing'].forEach(id => {
+      const row = document.getElementById('you-' + id);
+      if (row) row.classList.remove('visible');
+    });
+  }
+
+  function analyseYou() {
+    const income   = parseFloat(document.getElementById('you-income').value) || 0;
+    const country  = document.getElementById('you-country').value;
+    const wealth   = parseFloat(document.getElementById('you-wealth').value) || null;
+    const housing  = parseFloat(document.getElementById('you-housing').value) || null;
+    const diet     = document.getElementById('you-diet').value;
+    const flights  = parseFloat(document.getElementById('you-flights').value) || 0;
+    const energyUse= document.getElementById('you-energy').value;
+    const notes    = document.getElementById('you-notes').value;
+
+    if (!income && !country && !wealth) {
+      setYouStatus('⚠ Please enter at least your income or country to continue.', false);
+      return;
+    }
+
+    const btn = document.getElementById('youSubmitBtn');
+    btn.disabled = true;
+    document.getElementById('youResults').classList.remove('visible');
+    clearYouRows();
+
+    // ── Step 1 ──────────────────────────────────────────────────────────────
+    setYouStatus('Step 1 / 4 — Reading your inputs…', true);
+
+    setTimeout(() => {
+
+    // ── Income & percentile ─────────────────────────────────────────────────
+    // Global income percentile lookup (World Bank global distribution ~2023)
+    // Breakpoints: annual USD → percentile
+    const incomePercentile = (() => {
+      if (!income) return null;
+      const breaks = [
+        [400,1],[700,2],[900,3],[1100,4],[1300,5],[1500,6],[1700,7],[1900,8],[2100,9],[2400,10],
+        [2700,12],[3000,14],[3400,16],[3800,18],[4300,20],[4800,22],[5400,24],[6100,26],[6900,28],
+        [7800,30],[8800,33],[9900,36],[11100,39],[12500,42],[14000,45],[15700,48],[17600,51],
+        [19700,54],[22000,57],[24500,60],[27300,63],[30400,66],[33800,69],[37600,72],[41800,75],
+        [46400,78],[51500,81],[57100,84],[63300,87],[70200,90],[78100,92],[87800,94],[100000,96],
+        [120000,97],[150000,98],[200000,99],[1e9,100]
+      ];
+      for (const [threshold, pct] of breaks) { if (income <= threshold) return pct; }
+      return 99.9;
+    })();
+
+    // ── Wealth percentile ───────────────────────────────────────────────────
+    const wealthVal = wealth !== null ? wealth : (income ? income * 1.5 : 0);
+    const wealthPercentile = (() => {
+      const breaks = [
+        [100,5],[500,10],[1000,15],[2500,20],[5000,25],[8000,30],[12000,35],[18000,40],
+        [25000,45],[35000,50],[50000,55],[70000,60],[95000,65],[130000,70],[175000,75],
+        [240000,80],[330000,85],[480000,90],[750000,95],[1500000,98],[5000000,99],[1e10,100]
+      ];
+      for (const [threshold, pct] of breaks) { if (wealthVal <= threshold) return pct; }
+      return 99.9;
+    })();
+
+    setYouStatus('Step 2 / 4 — Estimating your carbon footprint…', true);
+
+    setTimeout(() => {
+
+    // ── CO2 estimation ──────────────────────────────────────────────────────
+    // Base CO2 by country/region (tonnes/yr per capita, approx 2022)
+    const countryCO2 = {
+      'United States':15.5,'Canada':14.2,'Australia':14.8,'Germany':8.1,'France':4.6,
+      'United Kingdom':5.0,'Netherlands':8.0,'Sweden':3.8,'Norway':7.5,'Denmark':5.5,
+      'Finland':7.0,'Ireland':7.8,'Switzerland':4.2,'Belgium':7.5,'Austria':7.0,
+      'Japan':8.5,'South Korea':11.6,'New Zealand':6.4,'Israel':7.0,'Poland':8.5,
+      'Italy':5.4,'Spain':5.2,'Portugal':4.3,'Romania':3.8,'Greece':5.5,'Hungary':4.2,
+      'Czech Republic':8.0,'Slovakia':5.5,'Ukraine':3.5,'Russia':11.5,'Turkey':5.5,
+      'China':8.0,'India':2.0,'Brazil':2.3,'Mexico':3.7,'Argentina':4.0,'Chile':4.8,
+      'Colombia':1.8,'Peru':1.5,'Venezuela':2.5,'Ecuador':2.0,'Bolivia':2.0,
+      'South Africa':6.8,'Nigeria':0.6,'Kenya':0.4,'Ethiopia':0.2,'Ghana':0.6,
+      'Egypt':2.5,'Morocco':1.8,'Algeria':3.5,'Saudi Arabia':16.5,'Iran':8.0,
+      'Iraq':3.5,'Jordan':2.5,'Indonesia':2.3,'Philippines':1.3,'Vietnam':3.8,
+      'Thailand':4.2,'Malaysia':8.0,'Pakistan':1.1,'Bangladesh':0.7,'Myanmar':0.5,
+      'Cambodia':1.0,'Sri Lanka':0.9,'Nepal':0.5,'Other high-income':8.0,
+      'Other middle-income':3.5,'Other low-income':0.8,
+    };
+    let baseCO2 = country ? (countryCO2[country] || 4.5) : 4.5;
+
+    // Diet adjustment
+    const dietAdj = {vegan:-2.0, vegetarian:-1.4, lowmeat:-0.7, average:0, highmeat:+1.5};
+    baseCO2 += dietAdj[diet] || 0;
+
+    // Flights (avg return flight ~1.5t CO2 per return trip)
+    baseCO2 += flights * 1.5;
+
+    // Energy use adjustment
+    const energyAdj = {minimal:-1.5, average:0, high:+1.8, very_high:+3.5};
+    baseCO2 += energyAdj[energyUse] || 0;
+
+    baseCO2 = Math.max(0.1, baseCO2);
+
+    // ── Energy estimation (kW) ───────────────────────────────────────────────
+    const countryEnergy = {
+      'United States':10.0,'Canada':11.5,'Australia':9.5,'Germany':5.0,'France':4.5,
+      'United Kingdom':3.8,'Norway':12.0,'Sweden':8.5,'Netherlands':5.5,'Denmark':4.5,
+      'Japan':5.5,'South Korea':7.5,'China':3.8,'India':0.9,'Brazil':1.8,'Russia':7.5,
+      'Saudi Arabia':9.0,'Iran':4.5,'South Africa':3.5,'Mexico':2.0,'Turkey':2.5,
+      'Indonesia':1.0,'Nigeria':0.3,'Other high-income':5.5,
+      'Other middle-income':2.0,'Other low-income':0.5,
+    };
+    let energyKw = country ? (countryEnergy[country] || 2.5) : 2.5;
+    const eAdj = {minimal:0.4, average:1.0, high:2.0, very_high:3.5};
+    energyKw = (energyKw * 0.6) + (eAdj[energyUse] || energyKw * 0.4);
+    energyKw = Math.max(0.2, energyKw);
+
+    // ── Calorie estimation ──────────────────────────────────────────────────
+    const dietCalories = {vegan:2100, vegetarian:2200, lowmeat:2400, average:2700, highmeat:3100};
+    // Income proxy: higher income → higher calorie availability
+    let calories = dietCalories[diet] || (income > 50000 ? 2900 : income > 20000 ? 2600 : income > 8000 ? 2400 : 2100);
+
+    // ── Water footprint ─────────────────────────────────────────────────────
+    // Personal water footprint (direct + embedded in food, goods)
+    // Average ~4,000 L/day total footprint per person in rich countries
+    const countryWater = {
+      'United States':6800,'Canada':5500,'Australia':4500,'Germany':3200,'France':3100,
+      'United Kingdom':2900,'Japan':3300,'China':2900,'India':1900,'Brazil':2800,
+      'Other high-income':3500,'Other middle-income':2200,'Other low-income':1400,
+    };
+    let waterDay = country ? (countryWater[country] || 2500) : 2500;
+    if (diet === 'vegan') waterDay *= 0.6;
+    else if (diet === 'vegetarian') waterDay *= 0.75;
+    else if (diet === 'highmeat') waterDay *= 1.3;
+
+    // ── Housing per person ──────────────────────────────────────────────────
+    // If user entered a value use it, else estimate from country
+    const countryHousing = {
+      'United States':950,'Canada':900,'Australia':1050,'Germany':480,'France':430,
+      'United Kingdom':420,'Netherlands':420,'Sweden':480,'Norway':580,'Denmark':490,
+      'Switzerland':520,'Japan':380,'South Korea':380,'China':330,'India':150,
+      'Brazil':280,'Mexico':240,'Russia':290,'South Africa':230,'Nigeria':120,
+      'Other high-income':500,'Other middle-income':250,'Other low-income':120,
+    };
+    const housingVal = housing || (country ? (countryHousing[country] || 350) : 350);
+
+    setYouStatus('Step 3 / 4 — Calculating your global percentiles…', true);
+
+    setTimeout(() => {
+
+    // ── Global reference points ──────────────────────────────────────────────
+    const GLOBALS = {
+      income:   { equal: 13000,  avg: 13000 },
+      wealth:   { equal: 122000, avg: 8000  },
+      co2:      { equal: 0.5,    avg: 6.5   },
+      energy:   { equal: 4.5,    avg: 4.5   },
+      housing:  { equal: 730,    avg: 650   },
+      calories: { equal: 2500,   avg: 2500  },
+      water:    { equal: 474,    avg: 2500  },
+    };
+
+    // ── Build metrics array ─────────────────────────────────────────────────
+    const results = {
+      income_usd_yr: income || null,
+      wealth_usd: wealthVal,
+      co2_tonnes_yr: baseCO2,
+      energy_kw: energyKw,
+      housing_sqft: housingVal,
+      calories_kcal_day: calories,
+      water_l_day: waterDay,
+      global_income_percentile: incomePercentile,
+      global_wealth_percentile: wealthPercentile,
+    };
+
+    setYouStatus('Step 4 / 4 — Building your profile…', true);
+
+    setTimeout(() => {
+
+    // ── Populate Part V "you" rows ───────────────────────────────────────────
+    if (results.calories_kcal_day) showYouRow('calories', results.calories_kcal_day, Math.round(results.calories_kcal_day).toLocaleString() + ' kcal/day', 2500);
+    if (results.water_l_day)       showYouRow('water',    results.water_l_day,       Math.round(results.water_l_day).toLocaleString() + ' L/day', 474);
+    if (results.energy_kw)         showYouRow('energy',   results.energy_kw,         results.energy_kw.toFixed(2) + ' kW', 4.5);
+    if (results.co2_tonnes_yr)     showYouRow('co2',      results.co2_tonnes_yr,     results.co2_tonnes_yr.toFixed(1) + ' t CO₂/yr', 6.5);
+    if (results.wealth_usd)        showYouRow('wealth',   results.wealth_usd,        '$' + Math.round(results.wealth_usd/1000) + 'K', 122000);
+    if (results.housing_sqft)      showYouRow('housing',  results.housing_sqft,      Math.round(results.housing_sqft) + ' sq ft', 730);
+
+    // ── Build metric cards ──────────────────────────────────────────────────
+    const metricDefs = [
+      { id:'income',   val: results.income_usd_yr,    fmt: v => '$' + Math.round(v).toLocaleString() + '/yr',
+        label:'Your income', globalLabel:'Global GDP/capita: ~$13,000/yr', equal:'$13,000/yr',
+        ref:13000, higherBetter:true, percentile: incomePercentile },
+      { id:'wealth',   val: results.wealth_usd,       fmt: v => '$' + (v >= 1000000 ? (v/1000000).toFixed(1)+'M' : Math.round(v/1000) + 'K'),
+        label:'Your net worth', globalLabel:'Global median adult: ~$8,000', equal:'$122K equal share',
+        ref:8000, higherBetter:true, percentile: wealthPercentile },
+      { id:'co2',      val: results.co2_tonnes_yr,    fmt: v => v.toFixed(1) + ' t CO₂/yr',
+        label:'Your carbon footprint', globalLabel:'Global avg: ~6.5 t/yr', equal:'0.5 t safe budget',
+        ref:6.5, higherBetter:false },
+      { id:'energy',   val: results.energy_kw,        fmt: v => v.toFixed(1) + ' kW · ' + Math.round(v*24) + ' kWh/day',
+        label:'Your energy use', globalLabel:'Global equal share: 4.5 kW', equal:'4.5 kW equal share',
+        ref:4.5, higherBetter:false },
+      { id:'housing',  val: results.housing_sqft,     fmt: v => Math.round(v) + ' sq ft / person',
+        label:'Your housing space', globalLabel:'Global average: ~650 sq ft', equal:'730 sq ft equal share',
+        ref:650, higherBetter:true },
+      { id:'calories', val: results.calories_kcal_day,fmt: v => Math.round(v).toLocaleString() + ' kcal/day',
+        label:'Your diet energy', globalLabel:'Global equal share: 2,500 kcal', equal:'2,500 kcal',
+        ref:2500, higherBetter:null },
+    ];
+
+    let html = '';
+    metricDefs.forEach(m => {
+      if (!m.val) return;
+      const pct = Math.round((m.val - m.ref) / m.ref * 100);
+      const absPct = Math.abs(pct);
+      let cls, badgeText;
+
+      if (m.percentile != null) {
+        const top = Math.round(100 - m.percentile);
+        badgeText = top <= 1 ? 'Top 1% globally' : 'Top ' + top + '% globally';
+        cls = m.percentile >= 80 ? 'above' : m.percentile >= 30 ? 'equal' : 'below';
+      } else if (m.higherBetter === false) {
+        if (absPct < 8)    { cls = 'equal'; badgeText = '≈ global average'; }
+        else if (pct > 0)  { cls = 'above'; badgeText = absPct + '% above global avg'; }
+        else               { cls = 'below'; badgeText = absPct + '% below global avg'; }
+      } else if (m.higherBetter === true) {
+        if (absPct < 8)    { cls = 'equal'; badgeText = '≈ global average'; }
+        else if (pct > 0)  { cls = 'above'; badgeText = absPct + '% above global avg'; }
+        else               { cls = 'below'; badgeText = absPct + '% below global avg'; }
+      } else {
+        if (absPct < 8)    { cls = 'equal'; badgeText = '≈ equal share'; }
+        else if (pct > 0)  { cls = 'above'; badgeText = absPct + '% above equal share'; }
+        else               { cls = 'below'; badgeText = absPct + '% below equal share'; }
+      }
+
+      html += `<div class="you-metric-card ${cls}">
+        <div class="you-metric-label">${m.label}</div>
+        <div class="you-metric-val">${m.fmt(m.val)}</div>
+        <div class="you-metric-global">${m.globalLabel}</div>
+        <div class="you-metric-badge">${badgeText}</div>
+        <div class="you-metric-note">Equal share: ${m.equal}</div>
+      </div>`;
+    });
+
+    // ── Narrative ────────────────────────────────────────────────────────────
+    const incPctStr = incomePercentile ? `top ${Math.round(100-incomePercentile)}%` : 'an unspecified position';
+    const co2vs = baseCO2 > 6.5 ? `${(baseCO2/6.5).toFixed(1)}× the global average` : `${Math.round((1-baseCO2/6.5)*100)}% below the global average`;
+    const wealthPctStr = wealthPercentile ? `top ${Math.round(100-wealthPercentile)}%` : '';
+    let narrative = '';
+    if (income) narrative += `Your income of $${Math.round(income).toLocaleString()}/yr places you in the ${incPctStr} of all earners globally — in a world of 8 billion people, that means roughly ${Math.round(incomePercentile/100*8000).toLocaleString()} million people earn less than you. `;
+    narrative += `Your estimated carbon footprint of ${baseCO2.toFixed(1)} t CO₂/yr is ${co2vs} and ${(baseCO2/0.5).toFixed(0)}× the 0.5 t safe climate budget. `;
+    if (wealthPercentile) narrative += `With an estimated net worth of $${Math.round(wealthVal/1000)}K, you sit in the ${wealthPctStr} of global wealth holders.`;
+
+    // ── Headline ─────────────────────────────────────────────────────────────
+    const headline = incomePercentile
+      ? `Income top ${Math.round(100-incomePercentile)}% · CO₂ ${baseCO2.toFixed(1)}t/yr · ${country || 'global'}`
+      : `CO₂ ${baseCO2.toFixed(1)}t/yr · ${country || 'global estimate'}`;
+
+    document.getElementById('youMetricsGrid').innerHTML = html;
+    document.getElementById('youResultsSub').textContent = headline;
+    document.getElementById('youNarrative').innerHTML = '<p>' + narrative + '</p>';
+    document.getElementById('youResults').classList.add('visible');
+
+    // ── Complete banner ──────────────────────────────────────────────────────
+    setYouStatus('✓ Complete — scroll down to see your results in Part V too', false, true);
+    btn.disabled = false;
+
+    document.getElementById('youResults').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+    }, 400); // step 4
+    }, 300); // step 3
+    }, 400); // step 2
+    }, 200); // step 1
+  }
+
+  function setYouStatus(msg, loading, success) {
+    document.getElementById('youStatusText').textContent = msg;
+    document.getElementById('youSpinner').classList.toggle('active', !!loading);
+    const statusEl = document.getElementById('youStatus');
+    statusEl.style.color = success ? 'var(--forest)' : '';
+    statusEl.style.fontWeight = success ? '600' : '';
+    statusEl.style.fontSize = success ? '0.95rem' : '';
+  }
+
+  // ── PART V COUNTRY COMPARISON ────────────────────────────────────────────
+
+  const PARTV_GLOBALS = {
+    calories: { val: 2500, unit: 'kcal/day', label: 'global equal share' },
+    water:    { val: 474,  unit: 'L/day',    label: 'global equal share' },
+    energy:   { val: 4.5,  unit: 'kW',       label: 'global equal share' },
+    co2:      { val: 6.5,  unit: 't CO₂/yr', label: 'global avg' },
+    wealth:   { val: 122000, unit: '$',       label: 'global equal share' },
+    housing:  { val: 730,  unit: 'sq ft',    label: 'global equal share' },
+  };
+
+  function setPartvStatus(msg, loading, success) {
+    const el = document.getElementById('partvStatusText');
+    el.textContent = msg;
+    el.style.color = success ? 'var(--forest)' : '';
+    el.style.fontWeight = success ? '600' : '';
+    document.getElementById('partvSpinner').classList.toggle('active', !!loading);
+  }
+
+  function showCountryRow(id, flag, val, formattedVal, globalVal, unit, direction) {
+    const row = document.getElementById('country-' + id);
+    if (!row) return;
+    document.getElementById('country-' + id + '-flag').textContent = flag;
+    document.getElementById('country-' + id + '-val').textContent = formattedVal;
+    const pct = ((val - globalVal) / globalVal * 100).toFixed(0);
+    const absPct = Math.abs(pct);
+    const deltaEl = document.getElementById('country-' + id + '-delta');
+    if (Math.abs(pct) < 3) {
+      deltaEl.textContent = '≈ equal share';
+      deltaEl.className = 'eq-country-delta';
+    } else if (val > globalVal) {
+      deltaEl.textContent = absPct + '% above equal share';
+      deltaEl.className = 'eq-country-delta above';
+    } else {
+      deltaEl.textContent = absPct + '% below equal share';
+      deltaEl.className = 'eq-country-delta below';
+    }
+    row.classList.add('visible');
+  }
+
+  // Country data table — sources: FAO 2023, IEA 2022, Global Carbon Project 2023,
+  // Credit Suisse Wealth Report 2023, UN Habitat 2022, World Bank
+  // Columns: [calories kcal/day, water L/day, energy kW, CO2 t/yr, wealth USD mean, housing sqft/person]
+  const COUNTRY_DATA = {
+    'Afghanistan':      [2060,  820, 0.18, 0.3,   2100,  120],
+    'Argentina':        [3080, 3100, 1.90, 4.0,  22000,  310],
+    'Australia':        [3340, 4500, 9.50,14.8, 430000, 1050],
+    'Bangladesh':       [2570,  960, 0.28, 0.7,   4800,  130],
+    'Bolivia':          [2220, 1800, 0.70, 1.9,   8500,  200],
+    'Brazil':           [3250, 2800, 1.80, 2.3,  22000,  280],
+    'Cambodia':         [2360,  900, 0.28, 1.0,   3900,  140],
+    'Cameroon':         [2360,  650, 0.18, 0.3,   3200,  130],
+    'Canada':           [3450, 5500,11.50,14.2, 360000,  900],
+    'Chile':            [2960, 2600, 2.10, 4.8,  60000,  390],
+    'China':            [3080, 2900, 3.80, 8.0,  76000,  330],
+    'Colombia':         [2720, 1900, 0.80, 1.8,  16000,  230],
+    'Congo (DRC)':      [1720,  450, 0.08, 0.1,   1200,   90],
+    'Costa Rica':       [2880, 2200, 1.20, 1.6,  30000,  320],
+    'Cuba':             [3280, 1100, 0.90, 2.6,   9000,  270],
+    'Denmark':          [3380, 1800, 4.50, 5.5, 330000,  490],
+    'Ecuador':          [2270, 1700, 0.90, 2.0,  14000,  230],
+    'Egypt':            [3430, 1200, 1.10, 2.5,   9000,  200],
+    'Ethiopia':         [2040,  490, 0.08, 0.2,   1600,   90],
+    'Finland':          [3200, 1900, 7.00, 7.0, 200000,  480],
+    'France':           [3530, 3100, 4.50, 4.6, 299000,  430],
+    'Germany':          [3530, 3200, 5.00, 8.1, 256000,  480],
+    'Ghana':            [2890,  710, 0.22, 0.6,   5000,  130],
+    'Guatemala':        [2310, 1200, 0.48, 1.1,   8000,  170],
+    'Haiti':            [1800,  490, 0.08, 0.3,   1500,  100],
+    'Honduras':         [2670, 1100, 0.42, 1.1,   5500,  170],
+    'India':            [2570, 1900, 0.90, 2.0,  15900,  150],
+    'Indonesia':        [2760, 1500, 1.00, 2.3,  18000,  200],
+    'Iran':             [3280, 1900, 4.50, 8.0,  27000,  310],
+    'Iraq':             [2990, 1400, 1.90, 3.5,  12000,  230],
+    'Ireland':          [3550, 2900, 3.80, 7.8, 290000,  420],
+    'Israel':           [3710, 2100, 4.00, 7.0, 220000,  480],
+    'Italy':            [3630, 2900, 2.80, 5.4, 234000,  430],
+    'Japan':            [2710, 3300, 5.50, 8.5, 270000,  380],
+    'Jordan':           [3180, 1000, 1.40, 2.5,  12000,  230],
+    'Kenya':            [2110,  700, 0.18, 0.4,   4400,  120],
+    'Madagascar':       [2020,  550, 0.06, 0.2,   1100,   90],
+    'Malawi':           [2140,  490, 0.06, 0.1,    900,   90],
+    'Malaysia':         [2940, 2500, 4.20, 8.0,  36000,  420],
+    'Mali':             [2360,  550, 0.08, 0.2,   1700,  100],
+    'Mexico':           [3140, 1900, 2.00, 3.7,  44000,  240],
+    'Morocco':          [3310, 1100, 0.78, 1.8,  11000,  220],
+    'Mozambique':       [2070,  490, 0.06, 0.1,    900,   90],
+    'Myanmar':          [2560,  900, 0.25, 0.5,   3600,  130],
+    'Nepal':            [2460,  720, 0.14, 0.5,   4000,  130],
+    'Netherlands':      [3220, 2900, 5.50, 8.0, 310000,  420],
+    'New Zealand':      [3140, 3800, 6.40, 6.4, 280000,  560],
+    'Nicaragua':        [2580, 1300, 0.48, 0.9,   6000,  180],
+    'Nigeria':          [2700,  620, 0.30, 0.6,   4600,  120],
+    'Norway':           [3440, 2800,12.00, 7.5, 380000,  580],
+    'Pakistan':         [2440, 1300, 0.52, 1.1,   5400,  130],
+    'Peru':             [2610, 1900, 0.90, 1.5,  16000,  220],
+    'Philippines':      [2620, 1300, 0.62, 1.3,  10000,  180],
+    'Poland':           [3340, 1800, 3.90, 8.5,  60000,  380],
+    'Portugal':         [3550, 2400, 2.40, 4.3, 110000,  380],
+    'Romania':          [3230, 1500, 2.20, 3.8,  38000,  350],
+    'Russia':           [3350, 2800, 7.50,11.5,  27000,  290],
+    'Rwanda':           [2210,  560, 0.08, 0.2,   1800,  100],
+    'Saudi Arabia':     [3170, 1900, 9.00,16.5,  90000,  550],
+    'Senegal':          [2430,  620, 0.14, 0.6,   3000,  110],
+    'South Africa':     [2960, 1900, 3.50, 6.8,  20000,  230],
+    'South Korea':      [3290, 2900, 7.50,11.6, 200000,  380],
+    'Spain':            [3280, 2800, 2.70, 5.2, 186000,  400],
+    'Sri Lanka':        [2530,  980, 0.40, 0.9,   9000,  200],
+    'Sudan':            [2380,  660, 0.20, 0.4,   2400,  110],
+    'Sweden':           [3120, 2200, 8.50, 3.8, 330000,  480],
+    'Switzerland':      [3320, 2600, 5.20, 4.2, 700000,  520],
+    'Tanzania':         [2100,  560, 0.08, 0.2,   2000,   95],
+    'Thailand':         [2730, 2100, 2.50, 4.2,  22000,  290],
+    'Turkey':           [3590, 1900, 2.50, 5.5,  30000,  310],
+    'Uganda':           [1940,  520, 0.06, 0.1,   1700,   95],
+    'Ukraine':          [3020, 1400, 2.40, 3.5,  10000,  290],
+    'United Kingdom':   [3400, 2900, 3.80, 5.0, 290000,  420],
+    'United States':    [3750, 6800,10.00,15.5, 580000,  950],
+    'Uruguay':          [2950, 2700, 2.00, 2.0,  50000,  350],
+    'Venezuela':        [2170, 1600, 1.20, 2.5,   6000,  230],
+    'Vietnam':          [2730, 1600, 0.90, 3.8,  16000,  210],
+    'Yemen':            [1990,  600, 0.28, 0.3,   2400,  110],
+    'Zambia':           [1970,  560, 0.20, 0.3,   2200,  100],
+    'Zimbabwe':         [2100,  560, 0.42, 0.8,   2600,  110],
+  };
+
+  function loadPartvCountry(country) {
+    if (!country) { clearPartvCountry(); return; }
+    document.getElementById('partvClearBtn').classList.remove('visible');
+
+    const d = COUNTRY_DATA[country];
+    if (!d) {
+      setPartvStatus('No data available for ' + country, false);
+      return;
+    }
+
+    const [calories, water, energy, co2, wealth, housing] = d;
+
+    showCountryRow('calories', country, calories, Math.round(calories).toLocaleString() + ' kcal/day', 2500);
+    showCountryRow('water',    country, water,    Math.round(water).toLocaleString() + ' L/day', 474);
+    showCountryRow('energy',   country, energy,   energy.toFixed(2) + ' kW  ·  ' + Math.round(energy * 24) + ' kWh/day', 4.5);
+    showCountryRow('co2',      country, co2,      co2.toFixed(1) + ' t CO₂/yr', 6.5);
+    showCountryRow('wealth',   country, wealth,   '$' + (wealth >= 1000000 ? (wealth/1000000).toFixed(1) + 'M' : Math.round(wealth/1000) + 'K') + ' mean wealth', 122000);
+    showCountryRow('housing',  country, housing,  Math.round(housing) + ' sq ft / person', 730);
+
+    setPartvStatus('✓  ' + country + ' — sources: FAO · IEA · GCP · Credit Suisse · UN Habitat', false, true);
+    document.getElementById('partvClearBtn').classList.add('visible');
+  }
+
+  function clearPartvCountry() {
+    ['calories','water','energy','co2','wealth','housing'].forEach(id => {
+      const row = document.getElementById('country-' + id);
+      if (row) row.classList.remove('visible');
+    });
+    document.getElementById('partvSelect').value = '';
+    document.getElementById('partvClearBtn').classList.remove('visible');
+    setPartvStatus('', false);
+  }
+
+  function toggleExpand(btn) {
+    const panel = btn.nextElementSibling;
+    const isOpen = panel.classList.contains('open');
+    panel.classList.toggle('open', !isOpen);
+    btn.classList.toggle('open', !isOpen);
+  }
+  function switchTab(e, id) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    e.currentTarget.classList.add('active');
+    document.getElementById(id).classList.add('active');
+    document.querySelectorAll('#' + id + ' .bar-fill').forEach(b => {
+      b.style.animation = 'none';
+      b.offsetHeight;
+      b.style.animation = '';
+    });
+  }
+
+  // Intersection observer for fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.stat-card, .equality-card, .timeline-item, .pillar-card, .care-banner').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+
+</script>
+</body>
+</html>
